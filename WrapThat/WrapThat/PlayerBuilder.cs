@@ -1,0 +1,29 @@
+﻿using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace WrapThat
+{
+    class PlayerBuilder : IBuilder
+    {
+        private GameObject gameObject;
+        public void BuildGameObject(Vector2 position)
+        {
+            GameObject gameObject = new GameObject();
+            gameObject.AddComponent(new SpriteRenderer(gameObject, "Player", 1f));
+            gameObject.Transform.Position = new Vector2(10, 10);
+            gameObject.AddComponent(new Animator(gameObject));
+            gameObject.AddComponent(new Player(gameObject));
+            //gameObject.AddComponent(new Collider());
+
+            this.gameObject = gameObject;
+
+        }
+        public GameObject GetResult()
+        {
+            return gameObject;
+        }
+    }
+}
