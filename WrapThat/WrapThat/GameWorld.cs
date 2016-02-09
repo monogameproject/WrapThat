@@ -65,8 +65,8 @@ namespace WrapThat
         /// </summary>
         protected override void Initialize()
         {
-            //director = new Director(new PlayerBuilder());
-            //GameObjects.Add(director.Construct(Vector2.Zero));
+            director = new Director(new PlayerBuilder());
+            gameObjects.Add(director.Construct(Vector2.Zero));
             //director = new Director(new EnemyBuilder());
             //gameObjects.Add(director.Construct(Vector2.Zero));
             // TODO: Add your initialization logic here
@@ -109,7 +109,7 @@ namespace WrapThat
             deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             foreach (GameObject go in gameObjects)
             {
-                go.GameObject.Update();
+                go.Update();
             }
             // TODO: Add your update logic here
             base.Update(gameTime);
@@ -121,7 +121,7 @@ namespace WrapThat
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Blue);
             spriteBatch.Begin();
 
             foreach (GameObject go in gameObjects)

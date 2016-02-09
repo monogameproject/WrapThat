@@ -27,25 +27,25 @@ namespace WrapThat
             {
                 direction = Direction.Back;
                 translation += new Vector2(0, -1);
-                animator.PlayAnimation("WalkBack");
+                animator.PlayAnimation("IldeFron");
             }
             if (keystate.IsKeyDown(Keys.S))
             {
                 direction = Direction.Front;
                 translation += new Vector2(0, 1);
-                animator.PlayAnimation("WalkFront");
+                animator.PlayAnimation("IdleFront");
             }
             if (keystate.IsKeyDown(Keys.A))
             {
                 direction = Direction.Left;
                 translation += new Vector2(-1, 0);
-                animator.PlayAnimation("WalkLeft");
+                animator.PlayAnimation("IdleFront");
             }
             if (keystate.IsKeyDown(Keys.D))
             {
                 direction = Direction.Right;
                 translation += new Vector2(1, 0);
-                animator.PlayAnimation("WalkRight");
+                animator.PlayAnimation("IdleFront");
             }
             transform.Translate(translation * GameWorld.DeltaTime * speed);
         }
