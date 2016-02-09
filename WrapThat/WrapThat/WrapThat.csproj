@@ -50,6 +50,7 @@
     <Compile Include="ILoadable.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="IUpdateable.cs" />
+    <Compile Include="LevelBuilder.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerBuilder.cs" />
     <Compile Include="Program.cs" />
@@ -66,6 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\tile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
