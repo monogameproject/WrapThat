@@ -64,7 +64,7 @@ namespace WrapThat
 
         public void CreateAnimations()
         {
-            animator.CreateAnimation("IdleFront", new Animation(4, 0, 0, 90, 150, 6, Vector2.Zero));
+            animator.CreateAnimation("IdleFront", new Animation(1, 0, 0, 100, 100, 6, Vector2.Zero));
             //animator.CreateAnimation("IdleBack", new Animation(4, 0, 4, 90, 150, 6, Vector2.Zero));
             //animator.CreateAnimation("IdleLeft", new Animation(4, 0, 8, 90, 150, 6, Vector2.Zero));
             //animator.CreateAnimation("IdleRight", new Animation(4, 0, 12, 90, 150, 6, Vector2.Zero));
