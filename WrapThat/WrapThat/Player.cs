@@ -34,26 +34,6 @@ namespace WrapThat
 
         public void OnAnimationDone(string animationName)
         {
-            if (animationName.Contains("AttackRight"))
-            {
-                animator.PlayAnimation("IdleRight");
-            }
-            if (animationName.Contains("WalkRight"))
-            {
-                animator.PlayAnimation("IdleRight");
-            }
-            if (animationName.Contains("WalkLeft"))
-            {
-                animator.PlayAnimation("IdleLeft");
-            }
-            if (animationName.Contains("WalkBack"))
-            {
-                animator.PlayAnimation("IdleBack");
-            }
-            if (animationName.Contains("WalkFront"))
-            {
-                animator.PlayAnimation("IdleFront");
-            }
 
         }
 

@@ -67,8 +67,8 @@ namespace WrapThat
         {
             director = new Director(new PlayerBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            //director = new Director(new EnemyBuilder());
-            //gameObjects.Add(director.Construct(Vector2.Zero));
+            director = new Director(new PreassurePlateBuilder());
+            gameObjects.Add(director.Construct(Vector2.Zero));
             // TODO: Add your initialization logic here
             base.Initialize();
         }
@@ -122,7 +122,7 @@ namespace WrapThat
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Blue);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 
             foreach (GameObject go in gameObjects)
             {
