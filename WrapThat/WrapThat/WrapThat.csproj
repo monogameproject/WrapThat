@@ -40,6 +40,8 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="Animator.cs" />
+    <Compile Include="BoxPreassurePlate.cs" />
+    <Compile Include="BoxPreassurePlateBuilder.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="GameObject.cs" />
@@ -51,6 +53,9 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="IUpdateable.cs" />
     <Compile Include="LevelBuilder.cs" />
+    <Compile Include="MoveableBox.cs" />
+    <Compile Include="MoveableBoxBuilder.cs" />
+    <Compile Include="MoveBox.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerBuilder.cs" />
     <Compile Include="PreassurePlate.cs" />
@@ -69,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\BoxPreassurePlate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MoveableBox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\tile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
