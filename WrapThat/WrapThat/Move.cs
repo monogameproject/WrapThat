@@ -10,7 +10,6 @@ namespace WrapThat
     class Move : IStrategy
     {
         private Animator animator;
-        private float speed = 200;
         private Transform transform;
         public Move(Animator animator, Transform transform)
         {
@@ -18,11 +17,9 @@ namespace WrapThat
             this.transform = transform;
         }
 
-        public void Update(ref Direction direction)
+        public void Update(ref Direction direction, Vector2 translation)
         {
             KeyboardState keystate = Keyboard.GetState();
-            Vector2 translation = Vector2.Zero;
-
             if (keystate.IsKeyDown(Keys.W))
             {
                 direction = Direction.Back;
@@ -43,7 +40,6 @@ namespace WrapThat
                 direction = Direction.Right;
                 translation += new Vector2(1, 0);
             }
-            transform.Translate(translation * GameWorld.DeltaTime * speed);
         }
     }
 }
