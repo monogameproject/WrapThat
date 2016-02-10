@@ -27,6 +27,7 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
+            
             if (other is Player)
             {
 
