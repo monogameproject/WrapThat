@@ -20,7 +20,6 @@ namespace WrapThat
         {
             GameWorld.Instance.Colliders.Add(this);
         }
-
         public Rectangle CollisionBox
         {
             get
