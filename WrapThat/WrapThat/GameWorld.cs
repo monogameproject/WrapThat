@@ -87,10 +87,16 @@ namespace WrapThat
             {
                 
             director = new Director(new LevelBuilder(i));
-               
+              
             gameObjects.Add(director.Construct(Vector2.Zero));
             }
-           
+            LevelOne one= new LevelOne();
+
+            foreach (GameObject go in one.LevelOneObjects )
+            {
+                GameObjects.Add(go);
+            }
+
 
             // TODO: Add your initialization logic here
             base.Initialize();
