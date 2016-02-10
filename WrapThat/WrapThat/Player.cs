@@ -16,9 +16,21 @@ namespace WrapThat
         Direction direction = Direction.Front;
         private Transform transform;
         private Animator animator;
-        private float speed = 200;
         private Vector2 currentDirection = new Vector2(0, 0);
         public Vector2 translation = Vector2.Zero;
+
+        public Vector2 CurrentDirection
+        {
+            get
+            {
+                return currentDirection;
+            }
+
+            set
+            {
+                currentDirection = value;
+            }
+        }
 
         public Player(GameObject gameObject) : base (gameObject)
         {
@@ -33,9 +45,7 @@ namespace WrapThat
             {
                 strategy = new Move(animator, transform);
             }
-            strategy.Update(ref direction, translation);
-            currentDirection = translation * GameWorld.DeltaTime * speed;
-            transform.Translate(currentDirection);
+            strategy.Update(ref direction, translation, CurrentDirection);
         }
 
         public void OnAnimationDone(string animationName)
@@ -70,7 +80,8 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-            transform.Translate(-currentDirection);
+            transform.Translate(-CurrentDirection);
+            throw new ArgumentNullException();
         }
 
         public void OnCollisionExit(Collider other)

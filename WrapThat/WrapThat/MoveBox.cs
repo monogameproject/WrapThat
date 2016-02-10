@@ -17,7 +17,7 @@ namespace WrapThat
             this.transform = transform;
         }
 
-        public void Update(ref Direction direction, Vector2 translation)
+        public void Update(ref Direction direction, Vector2 translation, Vector2 currentDirection)
         {
             //transform.Translate(translation * GameWorld.DeltaTime * speed);
         }

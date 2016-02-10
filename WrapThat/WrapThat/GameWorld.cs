@@ -83,7 +83,7 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i < 4; i++)
             {
                 
             director = new Director(new LevelBuilder(i));
