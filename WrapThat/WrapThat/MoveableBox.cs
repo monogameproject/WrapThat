@@ -12,12 +12,14 @@ namespace WrapThat
         private Vector2 playerPosition;
         private IStrategy strategy;
         private Transform transform;
+        private Transform playerTransform;
         private Animator animator;
         public MoveableBox(GameObject gameObject) : base (gameObject)
         {
             animator = (Animator)GameObject.GetComponent("Animator");
             transform = gameObject.Transform;
-            playerPosition = (Player)gameObject.GetComponent.("Player");
+            playerTransform = (Transform)GameObject.GetComponent("Transform");
+            playerPosition = playerTransform.Position;
         }
         public void Update()
         {
@@ -27,6 +29,7 @@ namespace WrapThat
         {
             if (other is Player)
             {
+
             }
         }
 
