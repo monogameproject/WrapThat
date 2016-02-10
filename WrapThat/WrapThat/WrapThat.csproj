@@ -42,12 +42,15 @@
     <Compile Include="Animator.cs" />
     <Compile Include="BoxPreassurePlate.cs" />
     <Compile Include="BoxPreassurePlateBuilder.cs" />
+    <Compile Include="Collider.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="IAnimateable.cs" />
     <Compile Include="IBuilder.cs" />
+    <Compile Include="ICollisionEnter.cs" />
+    <Compile Include="ICollisionExit.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="ILoadable.cs" />
     <Compile Include="IStrategy.cs" />

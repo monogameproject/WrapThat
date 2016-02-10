@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 namespace WrapThat
 {
     enum Direction { Front, Back, Left, Right}
-    class Player : Component, IUpdateable, ILoadable, IAnimateable
+    class Player : Component, IUpdateable, ILoadable, IAnimateable, ICollisionEnter, ICollisionExit
     {
         private IStrategy strategy;
         Direction direction = Direction.Front;
@@ -61,6 +61,17 @@ namespace WrapThat
             //animator.CreateAnimation("DieLeft", new Animation(3, 1070, 0, 150, 150, 5, Vector2.Zero));
             //animator.CreateAnimation("DieRight", new Animation(3, 1070, 3, 150, 150, 5, Vector2.Zero));
             animator.PlayAnimation("IdleFront");
+        }
+        public void OnCollisionEnter(Collider other)
+        {
+            SpriteRenderer spriteRenderer = (SpriteRenderer)other.GameObject.GetComponent("SpriteRenderer");
+            spriteRenderer.Color = Color.Red;
+        }
+
+        public void OnCollisionExit(Collider other)
+        {
+            SpriteRenderer spriteRenderer = (SpriteRenderer)other.GameObject.GetComponent("SpriteRenderer");
+            spriteRenderer.Color = Color.White;
         }
     }
 }

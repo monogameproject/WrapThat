@@ -85,5 +85,27 @@ namespace WrapThat
                 }
             }
         }
+        public void OnCollisionEnter(Collider other)
+        {
+            foreach (Component component in components)
+            {
+                if (component is ICollisionEnter)
+                {
+                    (component as ICollisionEnter).OnCollisionEnter(other);
+                }
+            }
+
+        }
+        public void OnCollisionExit(Collider other)
+        {
+            foreach (Component component in components)
+            {
+                if (component is ICollisionExit)
+                {
+                    (component as ICollisionExit).OnCollisionExit(other);
+                }
+            }
+
+        }
     }
 }
