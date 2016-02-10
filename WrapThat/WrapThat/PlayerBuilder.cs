@@ -16,7 +16,7 @@ namespace WrapThat
             gameObject.Transform.Position = new Vector2(10, 10);
             gameObject.AddComponent(new Animator(gameObject));
             gameObject.AddComponent(new Player(gameObject));
-            //gameObject.AddComponent(new Collider());
+            gameObject.AddComponent(new Collider(gameObject));
 
             this.gameObject = gameObject;
 
