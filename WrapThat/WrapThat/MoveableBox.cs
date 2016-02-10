@@ -14,8 +14,10 @@ namespace WrapThat
         private Transform transform;
         private Transform playerTransform;
         private Animator animator;
+        private Vector2 currentDirection;
         public MoveableBox(GameObject gameObject) : base (gameObject)
         {
+            currentDirection = new Vector2(0, 0);
             animator = (Animator)GameObject.GetComponent("Animator");
             transform = gameObject.Transform;
             playerTransform = (Transform)GameObject.GetComponent("Transform");
@@ -27,10 +29,7 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-            if (other is Player)
-            {
-
-            }
+            transform.Translate(currentDirection);
         }
 
         public void OnCollisionExit(Collider other)
