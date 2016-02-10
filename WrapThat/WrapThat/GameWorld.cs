@@ -65,16 +65,22 @@ namespace WrapThat
         /// </summary>
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
-            graphics.IsFullScreen = true;
-            graphics.ApplyChanges();
+            //graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            //graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            //graphics.IsFullScreen = true;
+            //graphics.ApplyChanges();
             director = new Director(new PlayerBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            director = new Director(new LevelBuilder());
+            for (int i = 0; i < 4; i++)
+            {
+                
+            director = new Director(new LevelBuilder(i));
+               
             gameObjects.Add(director.Construct(Vector2.Zero));
+            }
+           
 
             // TODO: Add your initialization logic here
             base.Initialize();
