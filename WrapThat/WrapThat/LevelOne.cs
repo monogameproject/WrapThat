@@ -19,10 +19,14 @@ namespace WrapThat
 
         public  void LevelOneBuild()
         {
+            for (int i = 0; i < 10; i++)
+            {
+                
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "tile", 1f));
-            gameObject.Transform.Position = new Vector2(-6,-6);
+            gameObject.Transform.Position = new Vector2(-6*i*128,-6*i*128);
             _levelOneObjects.Add(gameObject);
+            }
         }
     }
 }
