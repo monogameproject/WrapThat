@@ -6,18 +6,16 @@ using Microsoft.Xna.Framework;
 
 namespace WrapThat
 {
-    class PreassurePlateBuilder : IBuilder
+    class MoveableBoxBuilder : IBuilder
     {
         private GameObject gameObject;
         public void BuildGameObject(Vector2 position)
         {
             GameObject gameObject = new GameObject();
-            gameObject.AddComponent(new SpriteRenderer(gameObject, "PreassurePlate", 2f));
-            gameObject.Transform.Position = new Vector2(200, 10);
-            gameObject.AddComponent(new PreassurePlate(gameObject, Color.White));
-            this.gameObject = gameObject;
-
-
+            gameObject.AddComponent(new SpriteRenderer(gameObject, "MoveableBox", 1f));
+            gameObject.Transform.Position = new Vector2(10, 10);
+            gameObject.AddComponent(new Animator(gameObject));
+            gameObject.AddComponent(new MoveableBox(gameObject));
         }
 
         public GameObject GetResult()

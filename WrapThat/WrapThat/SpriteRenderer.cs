@@ -10,6 +10,7 @@ namespace WrapThat
 {
     class SpriteRenderer : Component, IDrawable, ILoadable 
     {
+        private Color color;
         private Rectangle rectangle;
         private Texture2D sprite;
         private Vector2 offset;
@@ -54,6 +55,19 @@ namespace WrapThat
             }
         }
 
+        public Color Color
+        {
+            get
+            {
+                return color;
+            }
+
+            set
+            {
+                color = value;
+            }
+        }
+
         public SpriteRenderer(GameObject gameObject, string spriteName, float layerDepth) : base (gameObject)
         {
             this.spriteName = spriteName;
@@ -63,10 +77,11 @@ namespace WrapThat
         {
             sprite = content.Load<Texture2D>(spriteName);
             rectangle = new Rectangle(0,0,sprite.Width,sprite.Height);
+            this.color = Color.White;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, GameObject.Transform.Position, rectangle, Color.White, 0, offset, 1, SpriteEffects.None, 1f);
+            spriteBatch.Draw(sprite, GameObject.Transform.Position, rectangle, color, 0, offset, 1, SpriteEffects.None, 1f);
         }
     }
 }
