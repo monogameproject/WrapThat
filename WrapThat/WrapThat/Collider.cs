@@ -78,6 +78,14 @@ namespace WrapThat
                     {
                         if (!otherColliders.Contains(other))
                         {
+                            if(other.GameObject.GetComponent("Player") != null)
+                            {
+                                if(GameObject.GetComponent("MoveableBox") != null)
+                                {
+                                    otherColliders.Add(other);
+                                    GameObject.OnCollisionEnter(other);
+                                }
+                            }
                             otherColliders.Add(other);
                             GameObject.OnCollisionEnter(other);
                         }

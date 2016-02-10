@@ -11,13 +11,14 @@ namespace WrapThat
     {
         private Animator animator;
         private Transform transform;
+        private float speed = 200;
         public Move(Animator animator, Transform transform)
         {
             this.animator = animator;
             this.transform = transform;
         }
 
-        public void Update(ref Direction direction, Vector2 translation)
+        public void Update(ref Direction direction, Vector2 translation, Vector2 currentDirection)
         {
             KeyboardState keystate = Keyboard.GetState();
             if (keystate.IsKeyDown(Keys.W))
@@ -40,6 +41,8 @@ namespace WrapThat
                 direction = Direction.Right;
                 translation += new Vector2(1, 0);
             }
+            currentDirection = translation * GameWorld.DeltaTime * speed;
+            transform.Translate(currentDirection);
         }
     }
 }

@@ -83,14 +83,20 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i < 4; i++)
             {
                 
             director = new Director(new LevelBuilder(i));
-               
+              
             gameObjects.Add(director.Construct(Vector2.Zero));
             }
-           
+            LevelOne one= new LevelOne();
+
+            foreach (GameObject go in one.LevelOneObjects )
+            {
+                GameObjects.Add(go);
+            }
+
 
             // TODO: Add your initialization logic here
             base.Initialize();
