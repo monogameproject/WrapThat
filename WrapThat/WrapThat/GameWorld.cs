@@ -13,7 +13,9 @@ namespace WrapThat
         Director director;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private List<Collider> colliders = new List<Collider>();
         private Vector2 playerPosition;
+
         private static GameWorld instance;
         private static float deltaTime;
         private List<GameObject> gameObjects = new List<GameObject>();
@@ -48,6 +50,14 @@ namespace WrapThat
             get
             {
                 return deltaTime;
+            }
+        }
+
+        internal List<Collider> Colliders
+        {
+            get
+            {
+                return colliders;
             }
         }
 
