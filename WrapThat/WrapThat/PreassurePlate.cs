@@ -12,9 +12,10 @@ namespace WrapThat
     {
         private bool pressed = false;
         private Color color;
-        public PreassurePlate(GameObject gameObject, Color color) : base (gameObject)
+
+        public PreassurePlate(GameObject gameObject, Color color) : base(gameObject)
         {
-            SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.GetComponent("SpriteRenderer");
+            SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponent("SpriteRenderer");
             spriteRenderer.Color = color;
 
         }
@@ -26,12 +27,20 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-            pressed = true;
+
+            if (pressed == false)
+            {
+                pressed = true;
+            }
+            if (pressed == true)
+            {
+                pressed = false;
+            }
         }
 
         public void OnCollisionExit(Collider other)
         {
-            pressed = false;
+
         }
     }
 }
