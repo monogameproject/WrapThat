@@ -19,13 +19,51 @@ namespace WrapThat
 
         public  void LevelOneBuild()
         {
+            for (int i = 0; i < 17; i++)
+            {
+            GameObject gameObject = new GameObject();
+                int newx = 50*i;
+
+            gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+            gameObject.Transform.Position = new Vector2(-6+newx,-6);
+                    
+                
+            _levelOneObjects.Add(gameObject);
+            }
+
             for (int i = 0; i < 10; i++)
             {
-                
-            GameObject gameObject = new GameObject();
-            gameObject.AddComponent(new SpriteRenderer(gameObject, "tile", 1f));
-            gameObject.Transform.Position = new Vector2(-6*i*128,-6*i*128);
-            _levelOneObjects.Add(gameObject);
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(-6 , -6+newy);
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(750, -6 + newy);
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 17; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newx = 50 * i;
+
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(-6+newx, -6+450);
+
+
+                _levelOneObjects.Add(gameObject);
             }
         }
     }
