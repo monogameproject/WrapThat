@@ -9,8 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WrapThat
 {
-    enum Direction { Front, Back, Left, Right}
-    class Player : Component, IUpdateable, ILoadable, IAnimateable, ICollisionEnter, ICollisionExit
+    public class Player : Component, IUpdateable, ILoadable, IAnimateable, ICollisionEnter, ICollisionExit
     {
         private IStrategy strategy;
         private Direction direction = Direction.Front;
@@ -18,7 +17,7 @@ namespace WrapThat
         private Animator animator;
         private Vector2 currentDirection = new Vector2(0, 0);
 
-        public Direction Direction
+        internal Direction Direction
         {
             get
             {
@@ -95,19 +94,19 @@ namespace WrapThat
         {
             if (other.GameObject.GetComponent("PreassurePlate") == null)
             {
-                if (Direction == Direction.Front)
+                if (direction == Direction.Front)
                 {
                     direction = Direction.Back;
                 }
-                else if (Direction == Direction.Back)
+                else if (direction == Direction.Back)
                 {
                     direction = Direction.Front;
                 }
-                else if (Direction == Direction.Right)
+                else if (direction == Direction.Right)
                 {
                     direction = Direction.Left;
                 }
-                else if (Direction == Direction.Left)
+                else if (direction == Direction.Left)
                 {
                     direction = Direction.Right;
                 }

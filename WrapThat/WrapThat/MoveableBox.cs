@@ -8,27 +8,39 @@ namespace WrapThat
 {
     class MoveableBox : Component, IUpdateable, ICollisionEnter, ICollisionExit
     {
-        Direction direction = Direction.Front;
+        Direction playerDirection;
         private IStrategy strategy;
         private Transform transform;
         private Animator animator;
         public Vector2 translation = Vector2.Zero;
         public MoveableBox(GameObject gameObject) : base (gameObject)
         {
+
             transform = gameObject.Transform;
             animator = (Animator)GameObject.GetComponent("Animator");
 
         }
         public void Update()
         {
-            strategy = new Idle(animator);
-            strategy.Update(ref direction);
 
+        }
+        public void Update(Direction direction)
+        {
+            strategy = new Idle(animator);
+            playerDirection = direction;
         }
 
         public void OnCollisionEnter(Collider other)
         {
-            strategy = new MoveBox(animator, transform);
+            if (other.GameObject.GetComponent("Player") != null)
+            {
+                strategy = new MoveBox(animator, transform);
+                strategy.Update(ref playerDirection);
+            }
+            if (other.GameObject.GetComponent("Tile") != null)
+            {
+                strategy = new Idle(animator);
+            }
         }
 
         public void OnCollisionExit(Collider other)
