@@ -13,11 +13,18 @@ namespace WrapThat
     class Player : Component, IUpdateable, ILoadable, IAnimateable, ICollisionEnter, ICollisionExit
     {
         private IStrategy strategy;
-        Direction direction = Direction.Front;
+        private Direction direction = Direction.Front;
         private Transform transform;
         private Animator animator;
-        string oppositeDirection;
         private Vector2 currentDirection = new Vector2(0, 0);
+
+        internal Direction Direction
+        {
+            get
+            {
+                return direction;
+            }
+        }
 
         public Player(GameObject gameObject) : base (gameObject)
         {
@@ -36,17 +43,17 @@ namespace WrapThat
                     direction = Direction.Right;
                     strategy.Update(ref direction);
                 }
-                if (keyState.IsKeyDown(Keys.A))
+                else if (keyState.IsKeyDown(Keys.A))
                 {
                     direction = Direction.Left;
                     strategy.Update(ref direction);
                 }
-                if (keyState.IsKeyDown(Keys.S))
+                else if (keyState.IsKeyDown(Keys.S))
                 {
                     direction = Direction.Front;
                     strategy.Update(ref direction);
                 }
-                if (keyState.IsKeyDown(Keys.W))
+                else if (keyState.IsKeyDown(Keys.W))
                 {
                     direction = Direction.Back;
                     strategy.Update(ref direction);
@@ -86,19 +93,19 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-            if(direction == Direction.Front)
+            if(Direction == Direction.Front)
             {
                 direction = Direction.Back;
             }
-            if(direction == Direction.Back)
+            else if(Direction == Direction.Back)
             {
                 direction = Direction.Front;
             }
-            if (direction == Direction.Right)
+            else if (Direction == Direction.Right)
             {
                 direction = Direction.Left;
             }
-            if (direction == Direction.Left)
+            else if (Direction == Direction.Left)
             {
                 direction = Direction.Right;
             }

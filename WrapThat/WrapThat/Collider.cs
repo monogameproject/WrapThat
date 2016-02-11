@@ -86,16 +86,16 @@ namespace WrapThat
                                     GameObject.OnCollisionEnter(other);
                                 }
                             }
-                            otherColliders.Add(other);
+                            otherColliders.Add(this);
                             GameObject.OnCollisionEnter(other);
                         }
                     }
                     else
                     {
-                        if (otherColliders.Contains(other))
+                        if (otherColliders.Contains(this))
                         {
-                            otherColliders.Remove(other);
-                            GameObject.OnCollisionExit(other);
+                            otherColliders.Remove(this);
+                            GameObject.OnCollisionExit(this);
                         }
                     }
                 }
