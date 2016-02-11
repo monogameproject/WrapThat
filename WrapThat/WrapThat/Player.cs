@@ -18,7 +18,7 @@ namespace WrapThat
         private Animator animator;
         private Vector2 currentDirection = new Vector2(0, 0);
 
-        internal Direction Direction
+        public Direction Direction
         {
             get
             {
