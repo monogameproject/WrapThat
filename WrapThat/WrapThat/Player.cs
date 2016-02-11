@@ -31,8 +31,27 @@ namespace WrapThat
             if ((keyState.IsKeyDown(Keys.D)) || (keyState.IsKeyDown(Keys.A)) || (keyState.IsKeyDown(Keys.S)) || (keyState.IsKeyDown(Keys.W)))
             {
                 strategy = new Move(animator, transform);
+                if (keyState.IsKeyDown(Keys.D))
+                {
+                    direction = Direction.Right;
+                    strategy.Update(ref direction);
+                }
+                if (keyState.IsKeyDown(Keys.A))
+                {
+                    direction = Direction.Left;
+                    strategy.Update(ref direction);
+                }
+                if (keyState.IsKeyDown(Keys.S))
+                {
+                    direction = Direction.Front;
+                    strategy.Update(ref direction);
+                }
+                if (keyState.IsKeyDown(Keys.W))
+                {
+                    direction = Direction.Back;
+                    strategy.Update(ref direction);
+                }
             }
-            strategy.Update(ref direction);
         }
 
         public void OnAnimationDone(string animationName)
@@ -67,25 +86,23 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-            if(direction == Direction.Front){
+            if(direction == Direction.Front)
+            {
                 direction = Direction.Back;
-                strategy.Update(ref direction);
             }
             if(direction == Direction.Back)
             {
                 direction = Direction.Front;
-                strategy.Update(ref direction);
             }
             if (direction == Direction.Right)
             {
                 direction = Direction.Left;
-                strategy.Update(ref direction);
             }
             if (direction == Direction.Left)
             {
                 direction = Direction.Right;
-                strategy.Update(ref direction);
             }
+            strategy.Update(ref direction);
         }
 
         public void OnCollisionExit(Collider other)
