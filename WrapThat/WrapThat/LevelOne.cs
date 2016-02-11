@@ -39,7 +39,7 @@ namespace WrapThat
 
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
                 gameObject.Transform.Position = new Vector2(-6 , -6+newy);
-
+                gameObject.AddComponent(new Collider(gameObject));
 
                 _levelOneObjects.Add(gameObject);
             }
@@ -51,6 +51,7 @@ namespace WrapThat
 
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
                 gameObject.Transform.Position = new Vector2(750, -6 + newy);
+                gameObject.AddComponent(new Collider(gameObject));
 
 
                 _levelOneObjects.Add(gameObject);
@@ -62,6 +63,7 @@ namespace WrapThat
 
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
                 gameObject.Transform.Position = new Vector2(-6+newx, -6+450);
+                gameObject.AddComponent(new Collider(gameObject));
 
 
                 _levelOneObjects.Add(gameObject);
