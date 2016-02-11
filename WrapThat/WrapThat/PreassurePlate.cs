@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace WrapThat
 {
-    class PreassurePlate : Component, IUpdateable
+    class PreassurePlate : Component, IUpdateable, ICollisionEnter, ICollisionExit
     {
         private bool pressed = false;
         private Color color;
@@ -22,6 +22,16 @@ namespace WrapThat
         public void Update()
         {
 
+        }
+
+        public void OnCollisionEnter(Collider other)
+        {
+            pressed = true;
+        }
+
+        public void OnCollisionExit(Collider other)
+        {
+            pressed = false;
         }
     }
 }
