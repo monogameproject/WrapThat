@@ -93,23 +93,27 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-            if(Direction == Direction.Front)
+            if (other.GameObject.GetComponent("PreassurePlate") == null)
             {
-                direction = Direction.Back;
+                if (Direction == Direction.Front)
+                {
+                    direction = Direction.Back;
+                }
+                else if (Direction == Direction.Back)
+                {
+                    direction = Direction.Front;
+                }
+                else if (Direction == Direction.Right)
+                {
+                    direction = Direction.Left;
+                }
+                else if (Direction == Direction.Left)
+                {
+                    direction = Direction.Right;
+                }
+                strategy.Update(ref direction);
             }
-            else if(Direction == Direction.Back)
-            {
-                direction = Direction.Front;
-            }
-            else if (Direction == Direction.Right)
-            {
-                direction = Direction.Left;
-            }
-            else if (Direction == Direction.Left)
-            {
-                direction = Direction.Right;
-            }
-            strategy.Update(ref direction);
+            
         }
 
         public void OnCollisionExit(Collider other)
