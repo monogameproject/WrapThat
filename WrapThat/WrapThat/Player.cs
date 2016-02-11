@@ -67,7 +67,8 @@ namespace WrapThat
         public void OnCollisionEnter(Collider other)
         {
 
-            transform.Translate(-currentDirection);
+            //transform.Translate(-currentDirection);
+            throw new ArgumentNullException();
         }
 
         public void OnCollisionExit(Collider other)
