@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace WrapThat
 {
@@ -15,7 +16,7 @@ namespace WrapThat
         SpriteBatch spriteBatch;
         private List<Collider> colliders = new List<Collider>();
         private Vector2 playerPosition;
-
+        private string level = "level 0";
         private static GameWorld instance;
         private static float deltaTime;
         private List<GameObject> gameObjects = new List<GameObject>();
@@ -83,20 +84,26 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            director = new Director(new MoveableBoxBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero));
-            for (int i = 1; i < 4; i++)
-            {
+            //for (int i = 1; i < 4; i++)
+            //{
                 
-            director = new Director(new LevelBuilder(i));
+            //director = new Director(new LevelBuilder(i));
               
-            gameObjects.Add(director.Construct(Vector2.Zero));
-            }
+            //gameObjects.Add(director.Construct(Vector2.Zero));
+            //}
+            if (level=="level 0")
+            {
             LevelOne one= new LevelOne();
             one.LevelOneBuild();
             foreach (GameObject go in one.LevelOneObjects )
             {
                 GameObjects.Add(go);
+            }
+                level = "level 1";
+            }
+            if (level =="level 1")
+            {
+                Debug.WriteLine("next level=!?!?!");
             }
 
 
