@@ -13,10 +13,18 @@ namespace WrapThat
     class Player : Component, IUpdateable, ILoadable, IAnimateable, ICollisionEnter, ICollisionExit
     {
         private IStrategy strategy;
-        Direction direction = Direction.Front;
+        private Direction direction = Direction.Front;
         private Transform transform;
         private Animator animator;
         private Vector2 currentDirection = new Vector2(0, 0);
+
+        internal Direction Direction
+        {
+            get
+            {
+                return direction;
+            }
+        }
 
         public Player(GameObject gameObject) : base (gameObject)
         {
@@ -30,8 +38,27 @@ namespace WrapThat
             if ((keyState.IsKeyDown(Keys.D)) || (keyState.IsKeyDown(Keys.A)) || (keyState.IsKeyDown(Keys.S)) || (keyState.IsKeyDown(Keys.W)))
             {
                 strategy = new Move(animator, transform);
+                if (keyState.IsKeyDown(Keys.D))
+                {
+                    direction = Direction.Right;
+                    strategy.Update(ref direction);
+                }
+                else if (keyState.IsKeyDown(Keys.A))
+                {
+                    direction = Direction.Left;
+                    strategy.Update(ref direction);
+                }
+                else if (keyState.IsKeyDown(Keys.S))
+                {
+                    direction = Direction.Front;
+                    strategy.Update(ref direction);
+                }
+                else if (keyState.IsKeyDown(Keys.W))
+                {
+                    direction = Direction.Back;
+                    strategy.Update(ref direction);
+                }
             }
-            strategy.Update(ref direction);
         }
 
         public void OnAnimationDone(string animationName)
@@ -66,8 +93,23 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-
-            transform.Translate(-currentDirection);
+            if(Direction == Direction.Front)
+            {
+                direction = Direction.Back;
+            }
+            else if(Direction == Direction.Back)
+            {
+                direction = Direction.Front;
+            }
+            else if (Direction == Direction.Right)
+            {
+                direction = Direction.Left;
+            }
+            else if (Direction == Direction.Left)
+            {
+                direction = Direction.Right;
+            }
+            strategy.Update(ref direction);
         }
 
         public void OnCollisionExit(Collider other)
