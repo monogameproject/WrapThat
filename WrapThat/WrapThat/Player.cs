@@ -16,6 +16,7 @@ namespace WrapThat
         Direction direction = Direction.Front;
         private Transform transform;
         private Animator animator;
+        string oppositeDirection;
         private Vector2 currentDirection = new Vector2(0, 0);
 
         public Player(GameObject gameObject) : base (gameObject)
@@ -66,9 +67,25 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-
-            //transform.Translate(-currentDirection);
-            throw new ArgumentNullException();
+            if(direction == Direction.Front){
+                direction = Direction.Back;
+                strategy.Update(ref direction);
+            }
+            if(direction == Direction.Back)
+            {
+                direction = Direction.Front;
+                strategy.Update(ref direction);
+            }
+            if (direction == Direction.Right)
+            {
+                direction = Direction.Left;
+                strategy.Update(ref direction);
+            }
+            if (direction == Direction.Left)
+            {
+                direction = Direction.Right;
+                strategy.Update(ref direction);
+            }
         }
 
         public void OnCollisionExit(Collider other)
