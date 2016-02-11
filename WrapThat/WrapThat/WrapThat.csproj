@@ -51,6 +51,7 @@
     <Compile Include="IBuilder.cs" />
     <Compile Include="ICollisionEnter.cs" />
     <Compile Include="ICollisionExit.cs" />
+    <Compile Include="Idle.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="ILoadable.cs" />
     <Compile Include="IStrategy.cs" />
