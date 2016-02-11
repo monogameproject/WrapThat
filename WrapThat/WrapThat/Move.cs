@@ -20,26 +20,21 @@ namespace WrapThat
 
         public void Update(ref Direction direction)
         {
-            KeyboardState keystate = Keyboard.GetState();
             Vector2 translation = Vector2.Zero;
-            if (keystate.IsKeyDown(Keys.W))
+            if (direction == Direction.Back)
             {
-                direction = Direction.Back;
                 translation += new Vector2(0, -1);
             }
-            if (keystate.IsKeyDown(Keys.S))
+            if (direction == Direction.Front)
             {
-                direction = Direction.Front;
                 translation += new Vector2(0, 1);
             }
-            if (keystate.IsKeyDown(Keys.A))
+            if (direction == Direction.Left)
             {
-                direction = Direction.Left;
                 translation += new Vector2(-1, 0);
             }
-            if (keystate.IsKeyDown(Keys.D))
+            if (direction == Direction.Right)
             {
-                direction = Direction.Right;
                 translation += new Vector2(1, 0);
             }
             transform.Translate(translation * GameWorld.DeltaTime * speed);
