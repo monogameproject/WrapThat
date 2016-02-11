@@ -18,9 +18,10 @@ namespace WrapThat
             this.transform = transform;
         }
 
-        public void Update(ref Direction direction, Vector2 translation, Vector2 currentDirection)
+        public void Update(ref Direction direction)
         {
             KeyboardState keystate = Keyboard.GetState();
+            Vector2 translation = Vector2.Zero;
             if (keystate.IsKeyDown(Keys.W))
             {
                 direction = Direction.Back;
@@ -41,8 +42,7 @@ namespace WrapThat
                 direction = Direction.Right;
                 translation += new Vector2(1, 0);
             }
-            currentDirection = translation * GameWorld.DeltaTime * speed;
-            transform.Translate(currentDirection);
+            transform.Translate(translation * GameWorld.DeltaTime * speed);
         }
     }
 }
