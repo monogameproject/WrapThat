@@ -23,9 +23,9 @@ namespace WrapThat
 
         }
 
-        public void Update(ref Direction direction, Vector2 translation)
+        public void Update(ref Direction direction)
         {
-
+            Vector2 translation = Vector2.Zero;
             if (playerPosition.X > transform.Position.X)
             {
                 translation += new Vector2(1, 0);
