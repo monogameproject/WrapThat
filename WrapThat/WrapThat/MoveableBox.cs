@@ -13,8 +13,6 @@ namespace WrapThat
         private Transform transform;
         private Animator animator;
         public Vector2 translation = Vector2.Zero;
-        private GameObject gameObject;
-        private Vector2 playerPosition;
         public MoveableBox(GameObject gameObject) : base (gameObject)
         {
             transform = gameObject.Transform;
@@ -30,7 +28,7 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-            strategy = new MoveBox(animator, transform, gameObject);
+            strategy = new MoveBox(animator, transform);
         }
 
         public void OnCollisionExit(Collider other)
