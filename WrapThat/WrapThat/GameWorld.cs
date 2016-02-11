@@ -93,7 +93,7 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             }
             LevelOne one= new LevelOne();
-
+            one.LevelOneBuild();
             foreach (GameObject go in one.LevelOneObjects )
             {
                 GameObjects.Add(go);

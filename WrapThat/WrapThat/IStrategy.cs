@@ -8,6 +8,6 @@ namespace WrapThat
 {
     interface IStrategy
     {
-        void Update(ref Direction direction, Vector2 translation, Vector2 currentDirection);
+        void Update(ref Direction direction);
     }
 }
