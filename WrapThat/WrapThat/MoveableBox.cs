@@ -32,14 +32,17 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-            if (other.GameObject.GetComponent("Player") != null)
-            {
-                strategy = new MoveBox(animator, transform);
-                strategy.Update(ref playerDirection);
-            }
-            if (other.GameObject.GetComponent("Tile") != null)
+            if (other.GameObject.GetComponent("Player") == null)
             {
                 strategy = new Idle(animator);
+            }
+            else
+            {
+                if (other.GameObject.GetComponent("Player") != null)
+                {
+                    strategy = new MoveBox(animator, transform);
+                    strategy.Update(ref playerDirection);
+                }
             }
         }
 

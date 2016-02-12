@@ -25,7 +25,9 @@ namespace WrapThat
         {
             if (other.GameObject.GetComponent("MoveableBox") != null)
             {
+                SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
                 color = Color.Red;
+                spriteRenderer.Color = color;
                 boxPressed = true;
             }
         }
@@ -34,7 +36,9 @@ namespace WrapThat
         {
             if (other.GameObject.GetComponent("MoveableBox") != null)
             {
-                color = Color.White;
+                SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
+                color = Color.Red;
+                spriteRenderer.Color = color;
                 boxPressed = false;
             }
         }
