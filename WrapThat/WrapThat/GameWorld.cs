@@ -16,7 +16,8 @@ namespace WrapThat
         SpriteBatch spriteBatch;
         private List<Collider> colliders = new List<Collider>();
         private Vector2 playerPosition;
-        private string level = "level 0";
+        private string level = "level 1";
+        private bool completed = false;
         private static GameWorld instance;
         private static float deltaTime;
         private List<GameObject> gameObjects = new List<GameObject>();
@@ -62,6 +63,18 @@ namespace WrapThat
             }
         }
 
+        public string Level
+        {
+            get { return level; }
+            set { level = value; }
+        }
+
+        public bool Completed
+        {
+            get { return completed; }
+            set { completed = value; }
+        }
+
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -86,14 +99,16 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new MoveableBoxBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
+            director = new Director(new Gift());
+            gameObjects.Add(director.Construct(Vector2.Zero));
             //for (int i = 1; i < 4; i++)
             //{
-                
+
             //director = new Director(new LevelBuilder(i));
-              
+
             //gameObjects.Add(director.Construct(Vector2.Zero));
             //}
-            if (level=="level 0")
+            if (level=="level 1")
             {
             LevelOne one= new LevelOne();
             one.LevelOneBuild();
@@ -101,11 +116,31 @@ namespace WrapThat
             {
                 GameObjects.Add(go);
             }
-                level = "level 1";
+                Completed = false;
+                level = "level 2";
             }
-            if (level =="level 1")
+            if (level =="level 2"&& Completed ==true)
             {
-                Debug.WriteLine("next level=!?!?!");
+
+                LevelOne one = new LevelOne();
+                foreach (GameObject go in one.LevelOneObjects )
+                {
+                    foreach (GameObject gwGameObject in GameObjects)
+                    {
+                    if (go.Equals(gwGameObject))
+                    {
+                        GameObjects.Remove(gwGameObject);
+                    }
+                        
+                    }
+                }
+                one.LevelTwoBuild();
+                foreach (GameObject go in one.LevelOneObjects)
+                {
+                    GameObjects.Add(go);
+                }
+                Completed = false;
+                level = "game done";
             }
 
 
