@@ -19,7 +19,7 @@ namespace WrapThat
         private string level = "level 1";
         private bool completed = false;
         private Direction direction;
-        private string level = "level 0";
+       
         private static GameWorld instance;
         private static float deltaTime;
         private List<GameObject> gameObjects = new List<GameObject>();
