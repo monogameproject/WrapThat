@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WrapThat
 {
+    public enum Direction { Front, Back, Left, Right}
     public class GameObject : Component, IAnimateable
     {
         private Transform transform;
@@ -60,6 +61,16 @@ namespace WrapThat
                 if (comp is IUpdateable)
                 {
                     (comp as IUpdateable).Update();
+                }
+            }
+        }
+        public void Update(Direction direction)
+        {
+            foreach (Component component in components)
+            {
+                if (component is MoveableBox)
+                {
+                    (component as MoveableBox).Update(direction);
                 }
             }
         }

@@ -18,6 +18,8 @@ namespace WrapThat
         private Vector2 playerPosition;
         private string level = "level 1";
         private bool completed = false;
+        private Direction direction;
+        private string level = "level 0";
         private static GameWorld instance;
         private static float deltaTime;
         private List<GameObject> gameObjects = new List<GameObject>();
@@ -184,6 +186,16 @@ namespace WrapThat
             deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             foreach (GameObject go in gameObjects)
             {
+                if ((Player)go.GetComponent("Player") != null)
+                {
+                    Player other = (Player)go.GetComponent("Player");
+                    direction = other.Direction;
+                    go.Update();
+                }
+                if ((MoveableBox)go.GetComponent("MoveableBox") != null)
+                {
+                    go.Update(direction);
+                }
                 go.Update();
             }
             // TODO: Add your update logic here
