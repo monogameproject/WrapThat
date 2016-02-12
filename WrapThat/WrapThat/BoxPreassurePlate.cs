@@ -14,7 +14,6 @@ namespace WrapThat
         {
             SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.GetComponent("SpriteRenderer");
             spriteRenderer.Color = color;
-
         }
 
         public void Update()
