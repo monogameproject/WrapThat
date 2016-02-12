@@ -47,6 +47,7 @@
     <Compile Include="Director.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
+    <Compile Include="Gift.cs" />
     <Compile Include="IAnimateable.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="ICollisionEnter.cs" />

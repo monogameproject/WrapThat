@@ -10,7 +10,7 @@ namespace WrapThat
 {
     class PreassurePlate : Component, IUpdateable, ICollisionEnter, ICollisionExit
     {
-        private bool pressed = false;
+        private bool playerPressed = false;
         private Color color;
 
         public PreassurePlate(GameObject gameObject, Color color) : base(gameObject)
@@ -27,14 +27,18 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-
-            if (pressed == false)
+            if (other.GameObject.GetComponent("Player") != null)
             {
-                pressed = true;
-            }
-            if (pressed == true)
-            {
-                pressed = false;
+                if (playerPressed == false)
+                {
+                    color = Color.Red;
+                    playerPressed = true;
+                }
+                if (playerPressed == true)
+                {
+                    color = Color.White;
+                    playerPressed = false;
+                }
             }
         }
 
