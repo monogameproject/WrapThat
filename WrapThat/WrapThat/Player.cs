@@ -92,7 +92,14 @@ namespace WrapThat
         }
         public void OnCollisionEnter(Collider other)
         {
-            if (other.GameObject.GetComponent("PreassurePlate") == null)
+            if (other.GameObject.GetComponent("PreassurePlate") != null)
+            {
+
+            } else if (other.GameObject.GetComponent("MoveableBox") != null)
+            {
+
+            }
+            else
             {
                 if (direction == Direction.Front)
                 {
