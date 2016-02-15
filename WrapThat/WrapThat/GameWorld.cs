@@ -102,6 +102,8 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new MoveableBoxBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
+            director = new Director(new BoxPreassurePlateBuilder());
+            gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new Gift());
             gameObjects.Add(director.Construct(Vector2.Zero));
             //for (int i = 1; i < 4; i++)

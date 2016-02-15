@@ -15,8 +15,9 @@ namespace WrapThat
 
         public PreassurePlate(GameObject gameObject, Color color) : base(gameObject)
         {
-            SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponent("SpriteRenderer");
-            spriteRenderer.Color = color;
+            
+            
+            this.color = color;
 
         }
 
@@ -29,17 +30,12 @@ namespace WrapThat
         {
             if (other.GameObject.GetComponent("Player") != null)
             {
-                if (playerPressed == false)
-                {
-                    color = Color.Red;
-                    playerPressed = true;
-                }
-                if (playerPressed == true)
-                {
-                    color = Color.White;
-                    playerPressed = false;
-                }
+                SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
+                color = Color.Red;
+                spriteRenderer.Color = color;
+                playerPressed = true;
             }
+            
         }
 
         public void OnCollisionExit(Collider other)

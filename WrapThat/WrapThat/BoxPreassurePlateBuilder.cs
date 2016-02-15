@@ -13,8 +13,7 @@ namespace WrapThat
         {
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "BoxPreassurePlate", 1f));
-            gameObject.Transform.Position = new Vector2(200, 200);
-            gameObject.AddComponent(new Animator(gameObject));
+            gameObject.Transform.Position = new Vector2(410, 150);
             gameObject.AddComponent(new BoxPreassurePlate(gameObject, Color.White));
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;
