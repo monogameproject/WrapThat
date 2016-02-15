@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
 namespace WrapThat
 {
-    class Gift : IBuilder, ICollisionEnter, ICollisionExit
+    class Gift :  Component,IBuilder, ICollisionEnter, ICollisionExit
     {
         private GameObject gameObject;
         private PreassurePlate preassurePlate;
@@ -21,6 +22,7 @@ namespace WrapThat
             gameObject.AddComponent(new SpriteRenderer(gameObject, "Gave", 1f));
             gameObject.Transform.Position = new Vector2(700,400);
             gameObject.AddComponent(new Collider(gameObject));
+            gameObject.AddComponent(new Gift());
             this.gameObject = gameObject;
 
         }
@@ -31,13 +33,14 @@ namespace WrapThat
             {
 
                 GameWorld.Instance.Completed = true;
+                GameWorld.Instance.Level = "level 2";
             }
             
         }
 
         public void OnCollisionExit(Collider other)
         {
-            throw new NotImplementedException();
+           // Debug.Write("exit gift/level");
         }
     }
 }

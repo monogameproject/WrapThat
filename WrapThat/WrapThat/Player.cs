@@ -99,6 +99,10 @@ namespace WrapThat
             {
 
             }
+            else if (other.GameObject.GetComponent("Gift") != null)
+            {
+
+            }
             else
             {
                 if (direction == Direction.Front)
