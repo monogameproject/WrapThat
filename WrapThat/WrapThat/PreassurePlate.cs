@@ -13,17 +13,12 @@ namespace WrapThat
         private bool playerPressed = false;
         private Color color;
 
-        public bool PlayerPressed
-        {
-            get
-            {
-                return playerPressed;
-            }
-        }
-
         public PreassurePlate(GameObject gameObject, Color color) : base(gameObject)
         {
+            
+            
             this.color = color;
+
         }
 
         public void Update()

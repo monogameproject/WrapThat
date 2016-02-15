@@ -23,7 +23,7 @@ namespace WrapThat
        
         private static GameWorld instance;
         private static float deltaTime;
-        private List<GameObject> gameObjects = new List<GameObject>();
+        private static List<GameObject> gameObjects = new List<GameObject>();
 
         public static GameWorld Instance
         {
@@ -37,7 +37,7 @@ namespace WrapThat
             }
         }
 
-        public List<GameObject> GameObjects
+        public static List<GameObject> GameObjects
         {
             get
             {
@@ -113,11 +113,11 @@ namespace WrapThat
 
             //gameObjects.Add(director.Construct(Vector2.Zero));
             //}
-            if (level=="level 1")
+            if (level == "level 1")
             {
             //LevelOne one= new LevelOne();
             one.LevelOneBuild();
-            foreach (GameObject go in one.LevelOneObjects )
+                foreach (GameObject go in one.LevelOneObjects)
             {
                 GameObjects.Add(go);
             }

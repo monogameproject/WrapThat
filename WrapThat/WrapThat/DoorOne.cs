@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WrapThat
 {
-    class DoorOne : Component, IUpdateable, ICollisionEnter, ICollisionExit
+    class DoorOne : Component, IUpdateable
     {
         private Transform transform;
         private Animator animator;
@@ -22,14 +22,6 @@ namespace WrapThat
             {
 
             }
-        }
-        public void OnCollisionEnter(Collider other)
-        {
-            throw new NotImplementedException();
-        }
-        public void OnCollisionExit(Collider other)
-        {
-            throw new NotImplementedException();
         }
     }
 }
