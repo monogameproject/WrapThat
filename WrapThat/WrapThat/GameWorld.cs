@@ -20,10 +20,10 @@ namespace WrapThat
         private bool completed = false;
         private Direction direction;
         private LevelOne one = new LevelOne();
-
+       
         private static GameWorld instance;
         private static float deltaTime;
-        private static List<GameObject> gameObjects = new List<GameObject>();
+        private List<GameObject> gameObjects = new List<GameObject>();
 
         public static GameWorld Instance
         {
@@ -37,7 +37,7 @@ namespace WrapThat
             }
         }
 
-        public static List<GameObject> GameObjects
+        public List<GameObject> GameObjects
         {
             get
             {
@@ -113,20 +113,20 @@ namespace WrapThat
 
             //gameObjects.Add(director.Construct(Vector2.Zero));
             //}
-            if (level == "level 1")
+            if (level=="level 1")
             {
-                //LevelOne one= new LevelOne();
-                one.LevelOneBuild();
-                foreach (GameObject go in one.LevelOneObjects)
-                {
-                    GameObjects.Add(go);
-                }
+            //LevelOne one= new LevelOne();
+            one.LevelOneBuild();
+            foreach (GameObject go in one.LevelOneObjects )
+            {
+                GameObjects.Add(go);
+            }
             }
             if (level == "level 2" && Completed == true)
             {
 
                 //LevelOne one = new LevelOne();
-
+                
                 one.LevelTwoBuild();
                 foreach (GameObject go in one.LevelOneObjects)
                 {
@@ -196,17 +196,17 @@ namespace WrapThat
             }
             if (level == "level 2" && Completed == true)
             {
-
-                for (int i = 0; i < GameObjects.Count; i++)
+                int J = GameObjects.Count;
+                for (int i = 0; i < J; i++)
                 {
-                    GameObject go = GameObjects[i];
-                    GameObjects.Remove(go);
+                    //GameObject go =GameObjects[i] ;
+                    GameObjects.Remove(GameObjects[0]);
                 }
-
+                
                 Initialize();
             }
             // TODO: Add your update logic here
-            base.Update(gameTime);
+                base.Update(gameTime);
         }
 
         /// <summary>
