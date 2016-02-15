@@ -23,6 +23,12 @@ namespace WrapThat
             }
         }
 
+        public List<Component> Components
+        {
+            get { return components; }
+            set { components = value; }
+        }
+
         public GameObject()
         {
             this.transform = new Transform(this, Vector2.Zero);
