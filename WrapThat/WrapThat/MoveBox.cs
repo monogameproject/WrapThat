@@ -8,11 +8,9 @@ namespace WrapThat
 {
     class MoveBox : IStrategy
     {
-        private Direction direction;
         private Animator animator;
         private float speed = 200;
         private Transform transform;
-        private GameObject gameObject;
         public MoveBox(Animator animator, Transform transform)
         {
             this.animator = animator;

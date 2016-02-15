@@ -10,10 +10,12 @@ namespace WrapThat
     {
         Direction playerDirection;
         private IStrategy strategy;
+        private Direction direction;
         private Transform transform;
         private Animator animator;
+        public Player player;
         public Vector2 translation = Vector2.Zero;
-        public MoveableBox(GameObject gameObject) : base (gameObject)
+        public MoveableBox(GameObject gameObject) : base(gameObject)
         {
 
             transform = gameObject.Transform;
@@ -26,29 +28,32 @@ namespace WrapThat
         }
         public void Update(Direction direction)
         {
-            strategy = new Idle(animator);
-            playerDirection = direction;
+            strategy = new Idle(animator, transform);
         }
 
         public void OnCollisionEnter(Collider other)
         {
-            if (other.GameObject.GetComponent("Player") == null)
+            if (other.GameObject.GetComponent("Player") == null && other.GameObject.GetComponent("Gift") == null && other.GameObject.GetComponent("BoxPreassurePlate") == null)
             {
-                strategy = new Idle(animator);
+
+                strategy = new Idle(animator, transform);
+                strategy.Update(ref playerDirection);
+                player.OnCollisionEnter(other);
             }
-            else
+            else if (other.GameObject.GetComponent("Player") != null)
             {
-                if (other.GameObject.GetComponent("Player") != null)
-                {
-                    strategy = new MoveBox(animator, transform);
-                    strategy.Update(ref playerDirection);
-                }
+                player = (Player)other.GameObject.GetComponent("Player");
+                playerDirection = player.Direction;
+                strategy = new MoveBox(animator, transform);
+                strategy.Update(ref playerDirection);
+                
             }
+
         }
 
         public void OnCollisionExit(Collider other)
         {
-            strategy = new Idle(animator);
+            strategy = new Idle(animator, transform);
         }
     }
 }
