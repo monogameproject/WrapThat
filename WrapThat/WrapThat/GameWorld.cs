@@ -19,6 +19,7 @@ namespace WrapThat
         private string level = "level 1";
         private bool completed = false;
         private Direction direction;
+        private LevelOne one = new LevelOne();
        
         private static GameWorld instance;
         private static float deltaTime;
@@ -114,38 +115,31 @@ namespace WrapThat
             //}
             if (level=="level 1")
             {
-            LevelOne one= new LevelOne();
+            //LevelOne one= new LevelOne();
             one.LevelOneBuild();
             foreach (GameObject go in one.LevelOneObjects )
             {
                 GameObjects.Add(go);
             }
-                Completed = false;
-                level = "level 2";
             }
-            if (level =="level 2"&& Completed ==true)
+            if (level == "level 2" && Completed == true)
             {
 
-                LevelOne one = new LevelOne();
-                foreach (GameObject go in one.LevelOneObjects )
-                {
-                    foreach (GameObject gwGameObject in GameObjects)
-                    {
-                    if (go.Equals(gwGameObject))
-                    {
-                        GameObjects.Remove(gwGameObject);
-                    }
-                        
-                    }
-                }
+                //LevelOne one = new LevelOne();
+                
                 one.LevelTwoBuild();
                 foreach (GameObject go in one.LevelOneObjects)
                 {
+
                     GameObjects.Add(go);
+
                 }
                 Completed = false;
                 level = "game done";
             }
+
+
+
 
 
             // TODO: Add your initialization logic here
@@ -200,8 +194,19 @@ namespace WrapThat
                 }
                 go.Update();
             }
+            if (level == "level 2" && Completed == true)
+            {
+
+                for (int i = 0; i < GameObjects.Count; i++)
+                {
+                    GameObject go =GameObjects[i] ;
+                    GameObjects.Remove(go);
+                }
+                
+                Initialize();
+            }
             // TODO: Add your update logic here
-            base.Update(gameTime);
+                base.Update(gameTime);
         }
 
         /// <summary>
@@ -215,6 +220,7 @@ namespace WrapThat
 
             foreach (GameObject go in gameObjects)
             {
+
                 go.Draw(spriteBatch);
             }
             spriteBatch.End();
