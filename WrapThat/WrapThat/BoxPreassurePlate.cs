@@ -10,6 +10,15 @@ namespace WrapThat
     {
         private bool boxPressed = false;
         private Color color;
+
+        public bool BoxPressed
+        {
+            get
+            {
+                return boxPressed;
+            }
+        }
+
         public BoxPreassurePlate(GameObject gameObject, Color color) : base (gameObject)
         {
             SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.GetComponent("SpriteRenderer");
