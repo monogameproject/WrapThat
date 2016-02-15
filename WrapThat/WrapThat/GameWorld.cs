@@ -196,11 +196,11 @@ namespace WrapThat
             }
             if (level == "level 2" && Completed == true)
             {
-
-                for (int i = 0; i < GameObjects.Count; i++)
+                int J = GameObjects.Count;
+                for (int i = 0; i < J; i++)
                 {
-                    GameObject go =GameObjects[i] ;
-                    GameObjects.Remove(go);
+                    //GameObject go =GameObjects[i] ;
+                    GameObjects.Remove(GameObjects[0]);
                 }
                 
                 Initialize();
