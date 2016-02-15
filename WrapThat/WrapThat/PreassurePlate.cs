@@ -13,6 +13,14 @@ namespace WrapThat
         private bool playerPressed = false;
         private Color color;
 
+        public bool PlayerPressed
+        {
+            get
+            {
+                return playerPressed;
+            }
+        }
+
         public PreassurePlate(GameObject gameObject, Color color) : base(gameObject)
         {
             
@@ -33,7 +41,13 @@ namespace WrapThat
                 SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
                 color = Color.Red;
                 spriteRenderer.Color = color;
-                playerPressed = true;
+                foreach (GameObject door in GameWorld.GameObjects)
+                {
+                    if (door.GetComponent("DoorOne") != null)
+                    {
+                        GameWorld.GameObjects.Remove(door);
+                    }
+                }
             }
             
         }

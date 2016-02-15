@@ -22,13 +22,7 @@ namespace WrapThat
 
         public BoxPreassurePlate(GameObject gameObject, Color color) : base (gameObject)
         {
-            foreach  (GameObject door in GameWorld.GameObjects)
-            {
-                if (door.GetComponent("DoorTwo") != null)
-                {
-                    doorTwo = door;
-                }
-            }
+            
             SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.GetComponent("SpriteRenderer");
             spriteRenderer.Color = color;
         }
@@ -45,8 +39,16 @@ namespace WrapThat
                 SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
                 color = Color.Red;
                 spriteRenderer.Color = color;
-                boxPressed = true;
+                foreach (GameObject door in GameWorld.GameObjects)
+                {
+                    if (door.GetComponent("DoorTwo") != null)
+                    {
+                        GameWorld.GameObjects.Remove(door);
+                    }
+                }
             }
+           
+            
         }
 
         public void OnCollisionExit(Collider other)
