@@ -199,8 +199,15 @@ namespace WrapThat
                 int J = GameObjects.Count;
                 for (int i = 0; i < J; i++)
                 {
-                    //GameObject go =GameObjects[i] ;
+                    GameObject go =GameObjects[0] ;
+                    //GameObject go = new GameObject();
+                    int I = go.Components.Count;
+                    for (int j = 0; j < I; j++)
+                    {
+                        go.Components.Remove(go.Components[0]);
+                    }
                     GameObjects.Remove(GameObjects[0]);
+                    
                 }
                 
                 Initialize();
