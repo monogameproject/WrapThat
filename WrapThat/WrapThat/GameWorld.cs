@@ -213,12 +213,11 @@ namespace WrapThat
                 {
                     GameObject go =GameObjects[0] ;
                     //GameObject go = new GameObject();
-                    int I = go.Components.Count;
-                    for (int j = 0; j < I; j++)
+                    if (go.GetComponent("Collider") != null)
                     {
-                        go.Components.Remove(go.Components[0]);
+                        Colliders.Remove((Collider)go.GetComponent("Collider"));
                     }
-                   removeGameObjects.Add(GameObjects[0]);
+                   //removeGameObjects.Add(GameObjects[0]);
                     GameObjects.Remove(GameObjects[0]);
                     removeGameObjects.Clear();
                     
