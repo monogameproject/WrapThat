@@ -18,5 +18,10 @@ namespace WrapThat
             builder.BuildGameObject(position);
             return builder.GetResult();
         }
+        public GameObject Construct(Vector2 position, string name)
+        {
+            builder.BuildGameObject(position, name);
+            return builder.GetResult();
+        }
     }
 }

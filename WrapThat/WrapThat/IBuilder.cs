@@ -9,6 +9,7 @@ namespace WrapThat
     interface IBuilder
     {
         GameObject GetResult();
-        void BuildGameObject(Vector2 position); 
+        void BuildGameObject(Vector2 position);
+        void BuildGameObject(Vector2 position, string name);
     }
 }

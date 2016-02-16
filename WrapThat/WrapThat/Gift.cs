@@ -42,5 +42,10 @@ namespace WrapThat
         {
            // Debug.Write("exit gift/level");
         }
+
+        public void BuildGameObject(Vector2 position, string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
