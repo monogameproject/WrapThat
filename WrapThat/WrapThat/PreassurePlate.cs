@@ -32,20 +32,35 @@ namespace WrapThat
                 SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
                 color = Color.Red;
                 spriteRenderer.Color = color;
-                foreach (GameObject door in GameWorld.GameObjects)
-                {
-                    
-                    if (door.GetComponent("DoorOne") != null)
-                    {
-                        DoorOne localDoor = (DoorOne)door.GetComponent("DoorOne");
-                        if(localDoor.Name == name)
-                        {
 
-                            GameWorld.GameObjects.Remove(door);
-                        }
+                int j = GameWorld.GameObjects.Count;
+                for (int i = 0; i < j; i++)
+                {
+                    GameObject go = GameWorld.GameObjects[i];
+                    //GameObject go = new GameObject();
+                    if (go.GetComponent("DoorOne") != null)
+                    {
+                        //Colliders.Remove((Collider)go.GetComponent("Collider"));
+                        GameWorld.GameObjects.Remove(GameWorld.GameObjects[i]);
                     }
                 }
-               
+                //removeGameObjects.Add(GameObjects[0]);
+                //    foreach (GameObject go in GameWorld.GameObjects)
+                //{
+
+                        
+                //    if (go.GetComponent("DoorOne") != null)
+                //    {
+                //        DoorOne localDoor = (DoorOne)go.GetComponent("DoorOne");
+                //        if (localDoor.Name == name)
+                //        {
+                          
+                //        }
+                    
+                //    }
+                //}
+              
+
             }
             
         }
