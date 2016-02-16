@@ -107,7 +107,7 @@ namespace WrapThat
             {
 
             }
-            else
+            if(other.GameObject.GetComponent("Gift") == null && other.GameObject.GetComponent("BoxPreassurePlate") == null && other.GameObject.GetComponent("PreassurePlate") == null && other.GameObject.GetComponent("DoorOne") == null && other.GameObject.GetComponent("DoorTwo") == null && other.GameObject.GetComponent("MoveableBox") == null)
             {
                 if (direction == Direction.Front)
                 {
