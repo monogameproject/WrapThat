@@ -12,7 +12,7 @@ namespace WrapThat
     {
         private bool playerPressed = false;
         private Color color;
-
+        private string name;
         public bool PlayerPressed
         {
             get
@@ -21,10 +21,9 @@ namespace WrapThat
             }
         }
 
-        public PreassurePlate(GameObject gameObject, Color color) : base(gameObject)
+        public PreassurePlate(GameObject gameObject, Color color, string name) : base(gameObject)
         {
-            
-            
+            this.name = name;
             this.color = color;
 
         }
@@ -45,7 +44,7 @@ namespace WrapThat
                 {
                     if (door.GetComponent("DoorOne") != null)
                     {
-                        GameWorld.GameObjects.Remove(door);
+
                     }
                 }
             }
