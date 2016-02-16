@@ -10,7 +10,7 @@ namespace WrapThat
     {
         private bool boxPressed = false;
         private Color color;
-        private GameObject doorTwo;
+        private string name;
 
         public bool BoxPressed
         {
@@ -20,9 +20,9 @@ namespace WrapThat
             }
         }
 
-        public BoxPreassurePlate(GameObject gameObject, Color color) : base (gameObject)
+        public BoxPreassurePlate(GameObject gameObject, Color color, string name) : base (gameObject)
         {
-            
+            this.name = name;
             SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.GetComponent("SpriteRenderer");
             spriteRenderer.Color = color;
         }
@@ -43,7 +43,7 @@ namespace WrapThat
                 {
                     if (door.GetComponent("DoorTwo") != null)
                     {
-                        GameWorld.GameObjects.Remove(door);
+
                     }
                 }
             }

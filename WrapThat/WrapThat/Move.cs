@@ -37,6 +37,7 @@ namespace WrapThat
             {
                 translation += new Vector2(1, 0);
             }
+            animator.PlayAnimation("Idle" + direction);
             transform.Translate(translation * GameWorld.DeltaTime * speed);
         }
     }
