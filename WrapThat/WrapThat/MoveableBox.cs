@@ -28,7 +28,7 @@ namespace WrapThat
         }
         public void Update(Direction direction)
         {
-            strategy = new Idle(animator, transform);
+
         }
 
         public void OnCollisionEnter(Collider other)
