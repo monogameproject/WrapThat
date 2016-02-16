@@ -8,17 +8,8 @@ namespace WrapThat
 {
     class BoxPreassurePlate : Component, IUpdateable, ICollisionEnter, ICollisionExit
     {
-        private bool boxPressed = false;
         private Color color;
         private string name;
-
-        public bool BoxPressed
-        {
-            get
-            {
-                return boxPressed;
-            }
-        }
 
         public BoxPreassurePlate(GameObject gameObject, Color color, string name) : base (gameObject)
         {
@@ -43,7 +34,11 @@ namespace WrapThat
                 {
                     if (door.GetComponent("DoorTwo") != null)
                     {
-
+                        DoorOne localDoor = (DoorOne)door.GetComponent("DoorTwo");
+                        if (localDoor.Name == name)
+                        {
+                            GameWorld.GameObjects.Remove(door);
+                        }
                     }
                 }
             }
@@ -58,7 +53,6 @@ namespace WrapThat
                 SpriteRenderer spriteRenderer = (SpriteRenderer)GameObject.GetComponent("SpriteRenderer");
                 color = Color.Red;
                 spriteRenderer.Color = color;
-                boxPressed = false;
             }
         }
     }

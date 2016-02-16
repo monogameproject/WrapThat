@@ -10,16 +10,8 @@ namespace WrapThat
 {
     class PreassurePlate : Component, IUpdateable, ICollisionEnter, ICollisionExit
     {
-        private bool playerPressed = false;
         private Color color;
         private string name;
-        public bool PlayerPressed
-        {
-            get
-            {
-                return playerPressed;
-            }
-        }
 
         public PreassurePlate(GameObject gameObject, Color color, string name) : base(gameObject)
         {

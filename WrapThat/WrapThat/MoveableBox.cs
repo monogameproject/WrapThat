@@ -33,13 +33,13 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-            if (other.GameObject.GetComponent("Player") == null && other.GameObject.GetComponent("Gift") == null && other.GameObject.GetComponent("BoxPreassurePlate") == null)
+            if (other.GameObject.GetComponent("Player") == null && other.GameObject.GetComponent("Gift") == null && other.GameObject.GetComponent("BoxPreassurePlate") == null && other.GameObject.GetComponent("PreassurePlate") == null)
             {
 
                 strategy = new Idle(animator, transform);
                 strategy.Update(ref playerDirection);
                 player.OnCollisionEnter(other);
-            }
+            }            
             else if (other.GameObject.GetComponent("Player") != null)
             {
                 player = (Player)other.GameObject.GetComponent("Player");
