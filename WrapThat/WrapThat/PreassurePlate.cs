@@ -44,7 +44,11 @@ namespace WrapThat
                 {
                     if (door.GetComponent("DoorOne") != null)
                     {
-
+                        DoorOne localDoor = (DoorOne)door.GetComponent("DoorOne");
+                        if(localDoor.Name == name)
+                        {
+                            GameWorld.GameObjects.Remove(door);
+                        }
                     }
                 }
             }

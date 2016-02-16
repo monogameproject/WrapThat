@@ -100,9 +100,9 @@ namespace WrapThat
             director = new Director(new PlayerBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new DoorOneBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero));
+            gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
             director = new Director(new PreassurePlateBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero));
+            gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
             director = new Director(new MoveableBoxBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new BoxPreassurePlateBuilder());
