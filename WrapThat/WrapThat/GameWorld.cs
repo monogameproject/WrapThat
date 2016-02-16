@@ -24,6 +24,7 @@ namespace WrapThat
         private static GameWorld instance;
         private static float deltaTime;
         private static List<GameObject> gameObjects = new List<GameObject>();
+        private List<GameObject> removeGameObjects = new List<GameObject>(); 
 
         public static GameWorld Instance
         {
@@ -208,8 +209,9 @@ namespace WrapThat
                     {
                         go.Components.Remove(go.Components[0]);
                     }
+                   removeGameObjects.Add(GameObjects[0]);
                     GameObjects.Remove(GameObjects[0]);
-                    
+                    removeGameObjects.Clear();
                 }
                 
                 Initialize();
