@@ -14,7 +14,22 @@ namespace WrapThat
         Director director;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private List<Collider> colliders = new List<Collider>();
+        //private List<Collider> colliders = new List<Collider>();
+
+        public List<Collider> Colliders
+        {
+            get
+            {
+                List<Collider> tmp = new List<Collider>();
+
+                foreach (GameObject go in GameObjects)
+                {
+                    tmp.Add(go.GetComponent<Collider>());
+                }
+                return tmp;
+
+            }
+        }
         private Vector2 playerPosition;
         private string level = "level 1";
         private bool completed = false;
@@ -59,13 +74,7 @@ namespace WrapThat
             }
         }
 
-        internal List<Collider> Colliders
-        {
-            get
-            {
-                return colliders;
-            }
-        }
+       
 
         public string Level
         {
@@ -212,6 +221,7 @@ namespace WrapThat
                    removeGameObjects.Add(GameObjects[0]);
                     GameObjects.Remove(GameObjects[0]);
                     removeGameObjects.Clear();
+                    
                 }
                 
                 Initialize();
