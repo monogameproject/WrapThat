@@ -40,8 +40,13 @@ namespace WrapThat
                     //GameObject go = new GameObject();
                     if (go.GetComponent("DoorOne") != null)
                     {
+
+                        DoorOne localDoor = (DoorOne)go.GetComponent("DoorOne");
+                        if (localDoor.Name == name)
+                        {
+                            GameWorld.Instance.RemoveGameObjects.Add(go);
+                        }
                         //Colliders.Remove((Collider)go.GetComponent("Collider"));
-                        GameWorld.GameObjects.Remove(GameWorld.GameObjects[i]);
                     }
                 }
                 //removeGameObjects.Add(GameObjects[0]);
@@ -51,11 +56,6 @@ namespace WrapThat
                         
                 //    if (go.GetComponent("DoorOne") != null)
                 //    {
-                //        DoorOne localDoor = (DoorOne)go.GetComponent("DoorOne");
-                //        if (localDoor.Name == name)
-                //        {
-                          
-                //        }
                     
                 //    }
                 //}

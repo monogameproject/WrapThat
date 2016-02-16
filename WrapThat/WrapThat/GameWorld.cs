@@ -15,6 +15,15 @@ namespace WrapThat
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         //private List<Collider> colliders = new List<Collider>();
+        private Vector2 playerPosition;
+        private string level = "level 1";
+        private bool completed = false;
+        private Direction direction;
+        private LevelOne one = new LevelOne();
+        private static GameWorld instance;
+        private static float deltaTime;
+        private static List<GameObject> gameObjects = new List<GameObject>();
+        private List<GameObject> removeGameObjects = new List<GameObject>();
 
         public List<Collider> Colliders
         {
@@ -30,17 +39,6 @@ namespace WrapThat
 
             }
         }
-        private Vector2 playerPosition;
-        private string level = "level 1";
-        private bool completed = false;
-        private Direction direction;
-        private LevelOne one = new LevelOne();
-       
-        private static GameWorld instance;
-        private static float deltaTime;
-        private static List<GameObject> gameObjects = new List<GameObject>();
-        private List<GameObject> removeGameObjects = new List<GameObject>(); 
-
         public static GameWorld Instance
         {
             get
@@ -86,6 +84,19 @@ namespace WrapThat
         {
             get { return completed; }
             set { completed = value; }
+        }
+
+        public List<GameObject> RemoveGameObjects
+        {
+            get
+            {
+                return removeGameObjects;
+            }
+
+            set
+            {
+                removeGameObjects = value;
+            }
         }
 
         public GameWorld()
@@ -189,6 +200,12 @@ namespace WrapThat
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            int j = RemoveGameObjects.Count;
+            for (int i = 0; i < j; i++)
+            {
+                GameObjects.Remove(RemoveGameObjects[i]);
+            }
+            RemoveGameObjects.Clear();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -217,10 +234,8 @@ namespace WrapThat
                     {
                         Colliders.Remove((Collider)go.GetComponent("Collider"));
                     }
-                   //removeGameObjects.Add(GameObjects[0]);
                     GameObjects.Remove(GameObjects[0]);
-                    removeGameObjects.Clear();
-                    
+
                 }
                 
                 Initialize();
