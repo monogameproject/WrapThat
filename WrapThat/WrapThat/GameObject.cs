@@ -50,6 +50,23 @@ namespace WrapThat
             }
             return null;
         }
+
+        public T GetComponent<T>() where T : Component
+        {
+            T tmp = default(T);
+
+            foreach (Component compt in components)
+            {
+                if (compt is T)
+                {
+                    return (T) compt;
+                }
+            }
+
+            return tmp;
+
+        }
+
         public void LoadContent(ContentManager content)
         {
             foreach (Component component in components)
