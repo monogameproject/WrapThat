@@ -98,6 +98,8 @@ namespace WrapThat
             //graphics.ApplyChanges();
             director = new Director(new PlayerBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
+            director = new Director(new DoorOneBuilder());
+            gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new MoveableBoxBuilder());
