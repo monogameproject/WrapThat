@@ -13,6 +13,7 @@ namespace WrapThat
     {
         private IStrategy strategy;
         private Direction direction = Direction.Front;
+        private Direction oppositeDirection;
         private Transform transform;
         private Animator animator;
         private Vector2 currentDirection = new Vector2(0, 0);
@@ -107,25 +108,25 @@ namespace WrapThat
             {
 
             }
-            else
+            if(other.GameObject.GetComponent("Gift") == null && other.GameObject.GetComponent("BoxPreassurePlate") == null && other.GameObject.GetComponent("PreassurePlate") == null && other.GameObject.GetComponent("MoveableBox") == null)
             {
                 if (direction == Direction.Front)
                 {
-                    direction = Direction.Back;
+                    oppositeDirection = Direction.Back;
                 }
                 else if (direction == Direction.Back)
                 {
-                    direction = Direction.Front;
+                    oppositeDirection = Direction.Front;
                 }
                 else if (direction == Direction.Right)
                 {
-                    direction = Direction.Left;
+                    oppositeDirection = Direction.Left;
                 }
                 else if (direction == Direction.Left)
                 {
-                    direction = Direction.Right;
+                    oppositeDirection = Direction.Right;
                 }
-                strategy.Update(ref direction);
+                strategy.Update(ref oppositeDirection);
             }
             
         }
