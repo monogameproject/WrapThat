@@ -29,13 +29,15 @@ namespace WrapThat
 
         public void OnCollisionEnter(Collider other)
         {
-            if (GameWorld.Instance.Level=="level 1")
+            if(other.GameObject.GetComponent("Player") != null)
             {
+                if (GameWorld.Instance.Level == "level 1")
+                {
 
-                GameWorld.Instance.Completed = true;
-                GameWorld.Instance.Level = "level 2";
+                    GameWorld.Instance.Completed = true;
+                    GameWorld.Instance.Level = "level 2";
+                }
             }
-            
         }
 
         public void OnCollisionExit(Collider other)
