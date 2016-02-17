@@ -119,14 +119,14 @@ namespace WrapThat
             //graphics.ApplyChanges();
             director = new Director(new PlayerBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            director = new Director(new DoorOneBuilder());
+            director = new Director(new DoorBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
             director = new Director(new MoveableBoxBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new BoxPreassurePlateBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero));
+            gameObjects.Add(director.Construct(Vector2.Zero, "Niels"));
             director = new Director(new Gift());
             gameObjects.Add(director.Construct(Vector2.Zero));
            

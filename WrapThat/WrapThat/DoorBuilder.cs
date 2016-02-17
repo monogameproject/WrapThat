@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WrapThat
 {
-    class DoorOneBuilder : IBuilder
+    class DoorBuilder : IBuilder
     {
         private GameObject gameObject;
         private string name;
@@ -15,7 +15,7 @@ namespace WrapThat
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "DoorOne", 1f));
             gameObject.Transform.Position = new Vector2(410, 150);
-            gameObject.AddComponent(new DoorOne(gameObject, name));
+            gameObject.AddComponent(new Door(gameObject, name));
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;
         }
@@ -26,7 +26,7 @@ namespace WrapThat
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "DoorOne", 1f));
             gameObject.Transform.Position = new Vector2(410, 150);
-            gameObject.AddComponent(new DoorOne(gameObject, name));
+            gameObject.AddComponent(new Door(gameObject, name));
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;
         }

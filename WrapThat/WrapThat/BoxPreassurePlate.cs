@@ -32,9 +32,9 @@ namespace WrapThat
                 spriteRenderer.Color = color;
                 foreach (GameObject door in GameWorld.GameObjects)
                 {
-                    if (door.GetComponent("DoorOne") != null)
+                    if (door.GetComponent("Door") != null)
                     {
-                        DoorOne localDoor = (DoorOne)door.GetComponent("DoorTwo");
+                        Door localDoor = (Door)door.GetComponent("Door");
                         if (localDoor.Name == name)
                         {
                             GameWorld.GameObjects.Remove(door);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WrapThat
 {
-    class DoorOne : Component
+    class Door : Component
     {
         private string name;
         private Transform transform;
@@ -25,7 +25,7 @@ namespace WrapThat
             }
         }
 
-        public DoorOne(GameObject gameObject, string name) : base(gameObject)
+        public Door(GameObject gameObject, string name) : base(gameObject)
         {
             this.Name = name;
             transform = gameObject.Transform;

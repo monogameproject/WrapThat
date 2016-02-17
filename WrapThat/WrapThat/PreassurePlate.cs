@@ -38,10 +38,10 @@ namespace WrapThat
                 {
                     GameObject go = GameWorld.GameObjects[i];
                    
-                    if (go.GetComponent("DoorOne") != null)
+                    if (go.GetComponent("Door") != null)
                     {
 
-                        DoorOne localDoor = (DoorOne)go.GetComponent("DoorOne");
+                        Door localDoor = (Door)go.GetComponent("Door");
                         if (localDoor.Name == name)
                         {
                             GameWorld.Instance.RemoveGameObjects.Add(go);
