@@ -37,7 +37,7 @@ namespace WrapThat
                 for (int i = 0; i < j; i++)
                 {
                     GameObject go = GameWorld.GameObjects[i];
-                    //GameObject go = new GameObject();
+                   
                     if (go.GetComponent("DoorOne") != null)
                     {
 
@@ -46,19 +46,10 @@ namespace WrapThat
                         {
                             GameWorld.Instance.RemoveGameObjects.Add(go);
                         }
-                        //Colliders.Remove((Collider)go.GetComponent("Collider"));
+                        
                     }
                 }
-                //removeGameObjects.Add(GameObjects[0]);
-                //    foreach (GameObject go in GameWorld.GameObjects)
-                //{
-
-                        
-                //    if (go.GetComponent("DoorOne") != null)
-                //    {
-                    
-                //    }
-                //}
+               
               
 
             }

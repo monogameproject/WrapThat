@@ -14,7 +14,7 @@ namespace WrapThat
         Director director;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        //private List<Collider> colliders = new List<Collider>();
+       
         private Vector2 playerPosition;
         private string level = "level 1";
         private bool completed = false;
@@ -129,16 +129,10 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new Gift());
             gameObjects.Add(director.Construct(Vector2.Zero));
-            //for (int i = 1; i < 4; i++)
-            //{
-
-            //director = new Director(new LevelBuilder(i));
-
-            //gameObjects.Add(director.Construct(Vector2.Zero));
-            //}
+           
             if (level == "level 1")
             {
-            //LevelOne one= new LevelOne();
+          
             one.LevelOneBuild();
                 foreach (GameObject go in one.LevelOneObjects)
             {
@@ -148,7 +142,7 @@ namespace WrapThat
             if (level == "level 2" && Completed == true)
             {
 
-                //LevelOne one = new LevelOne();
+              
                 
                 one.LevelTwoBuild();
                 foreach (GameObject go in one.LevelOneObjects)
@@ -229,7 +223,7 @@ namespace WrapThat
                 for (int i = 0; i < J; i++)
                 {
                     GameObject go =GameObjects[0] ;
-                    //GameObject go = new GameObject();
+                  
                     if (go.GetComponent("Collider") != null)
                     {
                         Colliders.Remove((Collider)go.GetComponent("Collider"));
