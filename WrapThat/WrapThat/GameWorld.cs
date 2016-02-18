@@ -134,7 +134,7 @@ namespace WrapThat
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 55), "Niels"));
                 director = new Director(new DoorBuilder());
-                gameObjects.Add(director.Construct(new Vector2(550, 150), "Niels","DoorTwo"));
+                gameObjects.Add(director.Construct(new Vector2(550, 150), "Niels", "DoorTwo"));
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 350), "Claus"));
                 director = new Director(new DoorBuilder());
@@ -163,7 +163,7 @@ namespace WrapThat
                 director = new Director(new DoorBuilder());
                 gameObjects.Add(director.Construct(new Vector2(194, 144), "Frederik"));
                 director = new Director(new PreassurePlateBuilder());
-                gameObjects.Add(director.Construct(new Vector2(194,394), "Frederik"));
+                gameObjects.Add(director.Construct(new Vector2(194, 394), "Frederik"));
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(144, 344), "Claus"));
                 director = new Director(new DoorBuilder());
@@ -174,10 +174,10 @@ namespace WrapThat
                 gameObjects.Add(director.Construct(new Vector2(294, 344), "Niels"));
                 director = new Director(new Gift());
                 gameObjects.Add(director.Construct(new Vector2(350, 200)));
-                director = new Director(new PlayerBuilder());
-                gameObjects.Add(director.Construct(Vector2.Zero));
                 director = new Director(new MoveableBoxBuilder());
                 gameObjects.Add(director.Construct(new Vector2(150, 150)));
+                director = new Director(new PlayerBuilder());
+                gameObjects.Add(director.Construct(Vector2.Zero));
 
 
                 one.LevelTwoBuild();
@@ -188,14 +188,39 @@ namespace WrapThat
 
                 }
                 Completed = false;
-                level = "level 3";
             }
 
             if (level == "level 3" && Completed == true)
-            { 
-
-
+            {
                 one.LevelThreeBuild();
+
+                GameObject background = new GameObject();
+                background.AddComponent(new SpriteRenderer(background, "Background", 0f));
+                gameObjects.Add(background);
+                director = new Director(new PreassurePlateBuilder());
+                gameObjects.Add(director.Construct(new Vector2(344, 344), "Frederik"));
+                director = new Director(new BoxPreassurePlateBuilder());
+                gameObjects.Add(director.Construct(new Vector2(444, 44), "Claus"));
+                gameObjects.Add(director.Construct(new Vector2(444, 44), "Claus"));
+                gameObjects.Add(director.Construct(new Vector2(144, 144), "Niels"));
+                gameObjects.Add(director.Construct(new Vector2(444, 44), "Claus"));
+                gameObjects.Add(director.Construct(new Vector2(44, 344), "Extra"));
+                gameObjects.Add(director.Construct(new Vector2(94, 194), "Lucas"));
+                director = new Director(new DoorBuilder());
+                gameObjects.Add(director.Construct(new Vector2(244, 244), "Claus", "DoorTwo"));
+                gameObjects.Add(director.Construct(new Vector2(294, 44), "Niels"));
+                gameObjects.Add(director.Construct(new Vector2(94, 294), "Frederik", "DoorTwo"));
+                gameObjects.Add(director.Construct(new Vector2(144, 294), "Frederik", "DoorTwo"));
+                gameObjects.Add(director.Construct(new Vector2(244, 274), "Lucas", "DoorTwo"));
+                gameObjects.Add(director.Construct(new Vector2(244, 304), "Extra", "DoorTwo"));
+                director = new Director(new MoveableBoxBuilder());
+                gameObjects.Add(director.Construct(new Vector2(148, 98)));
+                gameObjects.Add(director.Construct(new Vector2(398, 148)));
+                director = new Director(new Gift());
+                gameObjects.Add(director.Construct(new Vector2(250, 350)));
+                director = new Director(new PlayerBuilder());
+                gameObjects.Add(director.Construct(Vector2.Zero));
+
                 foreach (GameObject go in one.LevelOneObjects)
                 {
 
@@ -203,12 +228,7 @@ namespace WrapThat
 
                 }
                 Completed = false;
-                level = "game done";
             }
-
-
-
-
             // TODO: Add your initialization logic here
             base.Initialize();
         }
@@ -320,18 +340,18 @@ namespace WrapThat
 
                 go.Draw(spriteBatch);
             }
-            if (level=="level 1")
+            if (level == "level 1")
             {
-            spriteBatch.DrawString(font, "use w,a,s,d", new Vector2(47, 200), Color.Red);
-            spriteBatch.DrawString(font, "to move", new Vector2(70, 230), Color.Red);
+                spriteBatch.DrawString(font, "use w,a,s,d", new Vector2(47, 200), Color.Red);
+                spriteBatch.DrawString(font, "to move", new Vector2(70, 230), Color.Red);
 
-            spriteBatch.DrawString(font, "hit this", new Vector2(55, 320), Color.Red);
+                spriteBatch.DrawString(font, "hit this", new Vector2(55, 320), Color.Red);
 
-            spriteBatch.DrawString(font, "push the box onto the plate", new Vector2(180, 100), Color.Red);
+                spriteBatch.DrawString(font, "push the box onto the plate", new Vector2(180, 100), Color.Red);
 
-            spriteBatch.DrawString(font, "hit the gift to", new Vector2(210, 320), Color.Red);
-            spriteBatch.DrawString(font, "go to  the next level", new Vector2(210, 340), Color.Red);
-                
+                spriteBatch.DrawString(font, "hit the gift to", new Vector2(210, 320), Color.Red);
+                spriteBatch.DrawString(font, "go to  the next level", new Vector2(210, 340), Color.Red);
+
             }
             spriteBatch.End();
             // TODO: Add your drawing code here

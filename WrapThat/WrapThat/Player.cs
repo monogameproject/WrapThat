@@ -35,6 +35,10 @@ namespace WrapThat
         {
             KeyboardState keyState = Keyboard.GetState();
             strategy = new Move(animator, transform);
+            if ((keyState.IsKeyDown(Keys.R)))
+            {
+                GameWorld.Instance.Completed = true;
+            }
             if ((keyState.IsKeyDown(Keys.D)) || (keyState.IsKeyDown(Keys.A)) || (keyState.IsKeyDown(Keys.S)) || (keyState.IsKeyDown(Keys.W)))
             {
                 strategy = new Move(animator, transform);

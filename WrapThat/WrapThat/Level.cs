@@ -268,8 +268,6 @@ namespace WrapThat
 
                 _levelOneObjects.Add(gameObject);
             }
-
-
         }
         public void LevelThreeBuild()
         {
