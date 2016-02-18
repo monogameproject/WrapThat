@@ -14,7 +14,10 @@ namespace WrapThat
         Director director;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        //text
+        private SpriteFont font;
+        private int score = 0;
+        //text
         private Vector2 playerPosition;
         private string level = "level 1";
         private bool completed = false;
@@ -130,7 +133,8 @@ namespace WrapThat
                 gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 55), "Niels"));
-               //her skal det være  den horizontale door
+                director = new Director(new DoorBuilder());
+                gameObjects.Add(director.Construct(new Vector2(550, 150), "Niels","DoorTwo"));
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 350), "Claus"));
                 director = new Director(new DoorBuilder());
@@ -187,6 +191,7 @@ namespace WrapThat
             {
                 go.LoadContent(Content);
             }
+            font = Content.Load<SpriteFont>("Text");
             // TODO: use this.Content to load your game content here
         }
 
@@ -263,6 +268,19 @@ namespace WrapThat
             {
 
                 go.Draw(spriteBatch);
+            }
+            if (level=="level 1")
+            {
+            spriteBatch.DrawString(font, "use w,a,s,d", new Vector2(47, 200), Color.Red);
+            spriteBatch.DrawString(font, "to move", new Vector2(70, 230), Color.Red);
+
+            spriteBatch.DrawString(font, "hit this", new Vector2(55, 320), Color.Red);
+
+            spriteBatch.DrawString(font, "push the box onto the plate", new Vector2(180, 100), Color.Red);
+
+            spriteBatch.DrawString(font, "hit the gift to", new Vector2(210, 320), Color.Red);
+            spriteBatch.DrawString(font, "go to  the next level", new Vector2(210, 340), Color.Red);
+                
             }
             spriteBatch.End();
             // TODO: Add your drawing code here
