@@ -11,7 +11,7 @@ namespace WrapThat
     {
         private Animator animator;
         private Transform transform;
-        private float speed = 200;
+        private float speed = 100;
         public Move(Animator animator, Transform transform)
         {
             this.animator = animator;
