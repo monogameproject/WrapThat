@@ -49,5 +49,10 @@ namespace WrapThat
         {
             throw new NotImplementedException();
         }
+
+        public void BuildGameObject(Vector2 position, string name, string spriteName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

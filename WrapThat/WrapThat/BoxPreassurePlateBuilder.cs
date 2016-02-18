@@ -29,6 +29,12 @@ namespace WrapThat
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;
         }
+
+        public void BuildGameObject(Vector2 position, string name, string spriteName)
+        {
+            throw new NotImplementedException();
+        }
+
         public GameObject GetResult()
         {
             return gameObject;
