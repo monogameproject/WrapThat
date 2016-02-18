@@ -10,6 +10,7 @@ namespace WrapThat
     {
         private GameObject gameObject;
         private string name;
+        private string spriteName;
         public void BuildGameObject(Vector2 position)
         {
             GameObject gameObject = new GameObject();
@@ -25,6 +26,17 @@ namespace WrapThat
             this.name = name;
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "DoorOne", 0.1f));
+            gameObject.Transform.Position = position;
+            gameObject.AddComponent(new Door(gameObject, name));
+            gameObject.AddComponent(new Collider(gameObject));
+            this.gameObject = gameObject;
+        }
+        public void BuildGameObject(Vector2 position, string name, string spriteName)
+        {
+            this.spriteName = spriteName;
+            this.name = name;
+            GameObject gameObject = new GameObject();
+            gameObject.AddComponent(new SpriteRenderer(gameObject, spriteName, 0.1f));
             gameObject.Transform.Position = position;
             gameObject.AddComponent(new Door(gameObject, name));
             gameObject.AddComponent(new Collider(gameObject));
