@@ -31,6 +31,12 @@ namespace WrapThat
         {
             if(other.GameObject.GetComponent("Player") != null)
             {
+                if (GameWorld.Instance.Level == "level 2")
+                {
+
+                    GameWorld.Instance.Completed = true;
+                    GameWorld.Instance.Level = "level 3";
+                }
                 if (GameWorld.Instance.Level == "level 1")
                 {
 

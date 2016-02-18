@@ -137,7 +137,7 @@ namespace WrapThat
             int j = 6;
             GameObject single = new GameObject();
             single.AddComponent(new SpriteRenderer(single, "Tile", 2f));
-            single.Transform.Position = new Vector2(250 - j, 50 - j);
+            single.Transform.Position = new Vector2(200 - j, 50 - j);
             single.AddComponent(new Collider(single));
             _levelOneObjects.Add(single);
             for (int i = 0; i < 6; i++)
@@ -270,6 +270,10 @@ namespace WrapThat
             }
 
 
+        }
+        public void LevelThreeBuild()
+        {
+            LevelBorderBuild();
         }
 
         public void LevelChecker(string level)
