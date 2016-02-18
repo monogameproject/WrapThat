@@ -14,7 +14,7 @@ namespace WrapThat
         {
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "BoxPreassurePlate", 1f));
-            gameObject.Transform.Position = new Vector2(410, 150);
+            gameObject.Transform.Position = position;
             gameObject.AddComponent(new BoxPreassurePlate(gameObject, Color.White, name));
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;
@@ -24,7 +24,7 @@ namespace WrapThat
             this.name = name;
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "BoxPreassurePlate", 1f));
-            gameObject.Transform.Position = new Vector2(410, 150);
+            gameObject.Transform.Position = position;
             gameObject.AddComponent(new BoxPreassurePlate(gameObject, Color.White, name));
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;

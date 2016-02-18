@@ -20,7 +20,7 @@ namespace WrapThat
         {
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "Gave", 1f));
-            gameObject.Transform.Position = new Vector2(700,400);
+            gameObject.Transform.Position = position;
             gameObject.AddComponent(new Collider(gameObject));
             gameObject.AddComponent(new Gift());
             this.gameObject = gameObject;

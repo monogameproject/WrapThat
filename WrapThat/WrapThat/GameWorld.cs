@@ -117,21 +117,21 @@ namespace WrapThat
             //graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
             //graphics.IsFullScreen = true;
             //graphics.ApplyChanges();
+            if (level == "level 1")
+            {
             director = new Director(new PlayerBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new DoorBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
+            gameObjects.Add(director.Construct(new Vector2(150,47), "Frederik"));
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
             director = new Director(new MoveableBoxBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero));
+            gameObjects.Add(director.Construct(new Vector2(250,55)));
             director = new Director(new BoxPreassurePlateBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero, "Niels"));
+            gameObjects.Add(director.Construct(new Vector2(450,55), "Niels"));
             director = new Director(new Gift());
-            gameObjects.Add(director.Construct(Vector2.Zero));
+            gameObjects.Add(director.Construct(new Vector2(350,250)));
            
-            if (level == "level 1")
-            {
           
             one.LevelOneBuild();
                 foreach (GameObject go in one.LevelOneObjects)
@@ -229,7 +229,7 @@ namespace WrapThat
                         Colliders.Remove((Collider)go.GetComponent("Collider"));
                     }
                     GameObjects.Remove(GameObjects[0]);
-
+                    one.LevelOneObjects.Clear();
                 }
                 
                 Initialize();

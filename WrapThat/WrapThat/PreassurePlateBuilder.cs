@@ -27,7 +27,7 @@ namespace WrapThat
             this.name = name;
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "PreassurePlate", 2f));
-            gameObject.Transform.Position = new Vector2(180, 230);
+            gameObject.Transform.Position = new Vector2(50, 350);
             gameObject.AddComponent(new PreassurePlate(gameObject, Color.White, name));
             gameObject.AddComponent(new Collider(gameObject));
             this.gameObject = gameObject;
