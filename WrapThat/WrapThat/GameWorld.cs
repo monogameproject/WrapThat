@@ -340,6 +340,16 @@ namespace WrapThat
 
                 go.Draw(spriteBatch);
             }
+            if (level == "level 3")
+            {
+                spriteBatch.DrawString(font, "Thanks for playing", new Vector2(560, 200), Color.Red);
+                spriteBatch.DrawString(font, "our project", new Vector2(580, 220), Color.Red);
+            }
+            if (level == "level 2")
+            {
+                spriteBatch.DrawString(font, "Use 'R'", new Vector2(500, 200), Color.Red);
+                spriteBatch.DrawString(font, "to retry", new Vector2(500, 220), Color.Red);
+            }
             if (level == "level 1")
             {
                 spriteBatch.DrawString(font, "use w,a,s,d", new Vector2(47, 200), Color.Red);
