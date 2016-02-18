@@ -9,7 +9,7 @@ namespace WrapThat
     class MoveBox : IStrategy
     {
         private Animator animator;
-        private float speed = 200;
+        private float speed = 100;
         private Transform transform;
         public MoveBox(Animator animator, Transform transform)
         {
