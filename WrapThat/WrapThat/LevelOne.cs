@@ -87,14 +87,14 @@ namespace WrapThat
             _levelOneObjects.Add(gameObject);
             }
             // bygger  alt efter hullet henad x
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
 
                 GameObject gameObject = new GameObject();
 
                 int newx = 50 * i;
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
-                gameObject.Transform.Position = new Vector2(550 + newx, 100);
+                gameObject.Transform.Position = new Vector2(600 + newx, 100);
                 gameObject.AddComponent(new Collider(gameObject));
 
 

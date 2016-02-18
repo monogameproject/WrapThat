@@ -123,6 +123,7 @@ namespace WrapThat
             gameObjects.Add(director.Construct(Vector2.Zero));
             director = new Director(new DoorBuilder());
             gameObjects.Add(director.Construct(new Vector2(150,47), "Frederik"));
+            
             director = new Director(new PreassurePlateBuilder());
             gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
             director = new Director(new MoveableBoxBuilder());
