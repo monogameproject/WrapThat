@@ -119,21 +119,21 @@ namespace WrapThat
             //graphics.ApplyChanges();
             if (level == "level 1")
             {
-                //GameObject background = new GameObject();
-                //background.AddComponent(new SpriteRenderer(background, "Background", 0));
-                //gameObjects.Add(background);
-                director = new Director(new PlayerBuilder());
-                gameObjects.Add(director.Construct(Vector2.Zero));
+                GameObject background = new GameObject();
+                background.AddComponent(new SpriteRenderer(background, "Background", 0));
+                gameObjects.Add(background);
                 director = new Director(new DoorBuilder());
                 gameObjects.Add(director.Construct(new Vector2(150, 47), "Frederik"));
                 director = new Director(new PreassurePlateBuilder());
                 gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
-                director = new Director(new MoveableBoxBuilder());
-                gameObjects.Add(director.Construct(new Vector2(250, 55)));
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 55), "Niels"));
                 director = new Director(new Gift());
                 gameObjects.Add(director.Construct(new Vector2(350, 250)));
+                director = new Director(new MoveableBoxBuilder());
+                gameObjects.Add(director.Construct(new Vector2(250, 55)));
+                director = new Director(new PlayerBuilder());
+                gameObjects.Add(director.Construct(Vector2.Zero));
 
 
                 one.LevelOneBuild();
@@ -248,7 +248,7 @@ namespace WrapThat
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Blue);
-            spriteBatch.Begin(SpriteSortMode.BackToFront);
+            spriteBatch.Begin();
 
             foreach (GameObject go in gameObjects)
             {
