@@ -74,13 +74,16 @@ namespace WrapThat
             {
                 if (other != this)
                 {
-                    if (CollisionBox.Intersects(other.CollisionBox))
+                    if(other != null)
                     {
-                        if (!otherColliders.Contains(other))
+                        if (CollisionBox.Intersects(other.CollisionBox))
                         {
-                            otherColliders.Add(this);
-                            GameObject.OnCollisionEnter(other);
-                            other.GameObject.OnCollisionEnter(this);
+                            if (!otherColliders.Contains(other))
+                            {
+                                otherColliders.Add(this);
+                                GameObject.OnCollisionEnter(other);
+                                other.GameObject.OnCollisionEnter(this);
+                            }
                         }
                     }
                     else

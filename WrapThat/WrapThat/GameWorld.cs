@@ -14,7 +14,7 @@ namespace WrapThat
         Director director;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-       
+
         private Vector2 playerPosition;
         private string level = "level 1";
         private bool completed = false;
@@ -72,7 +72,7 @@ namespace WrapThat
             }
         }
 
-       
+
 
         public string Level
         {
@@ -119,31 +119,34 @@ namespace WrapThat
             //graphics.ApplyChanges();
             if (level == "level 1")
             {
-            director = new Director(new PlayerBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero));
-            director = new Director(new DoorBuilder());
-            gameObjects.Add(director.Construct(new Vector2(150,47), "Frederik"));
-            director = new Director(new PreassurePlateBuilder());
-            gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
-            director = new Director(new MoveableBoxBuilder());
-            gameObjects.Add(director.Construct(new Vector2(250,55)));
-            director = new Director(new BoxPreassurePlateBuilder());
-            gameObjects.Add(director.Construct(new Vector2(450,55), "Niels"));
-            director = new Director(new Gift());
-            gameObjects.Add(director.Construct(new Vector2(350,250)));
-           
-          
-            one.LevelOneBuild();
+                //GameObject background = new GameObject();
+                //background.AddComponent(new SpriteRenderer(background, "Background", 0));
+                //gameObjects.Add(background);
+                director = new Director(new PlayerBuilder());
+                gameObjects.Add(director.Construct(Vector2.Zero));
+                director = new Director(new DoorBuilder());
+                gameObjects.Add(director.Construct(new Vector2(150, 47), "Frederik"));
+                director = new Director(new PreassurePlateBuilder());
+                gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
+                director = new Director(new MoveableBoxBuilder());
+                gameObjects.Add(director.Construct(new Vector2(250, 55)));
+                director = new Director(new BoxPreassurePlateBuilder());
+                gameObjects.Add(director.Construct(new Vector2(450, 55), "Niels"));
+                director = new Director(new Gift());
+                gameObjects.Add(director.Construct(new Vector2(350, 250)));
+
+
+                one.LevelOneBuild();
                 foreach (GameObject go in one.LevelOneObjects)
-            {
-                GameObjects.Add(go);
-            }
+                {
+                    GameObjects.Add(go);
+                }
             }
             if (level == "level 2" && Completed == true)
             {
 
-              
-                
+
+
                 one.LevelTwoBuild();
                 foreach (GameObject go in one.LevelOneObjects)
                 {
@@ -222,8 +225,8 @@ namespace WrapThat
                 int J = GameObjects.Count;
                 for (int i = 0; i < J; i++)
                 {
-                    GameObject go =GameObjects[0] ;
-                  
+                    GameObject go = GameObjects[0];
+
                     if (go.GetComponent("Collider") != null)
                     {
                         Colliders.Remove((Collider)go.GetComponent("Collider"));
@@ -231,11 +234,11 @@ namespace WrapThat
                     GameObjects.Remove(GameObjects[0]);
                     one.LevelOneObjects.Clear();
                 }
-                
+
                 Initialize();
             }
             // TODO: Add your update logic here
-                base.Update(gameTime);
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -245,7 +248,7 @@ namespace WrapThat
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Blue);
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            spriteBatch.Begin(SpriteSortMode.BackToFront);
 
             foreach (GameObject go in gameObjects)
             {
