@@ -80,7 +80,7 @@ namespace WrapThat
 
                 int newx = 50 * i;
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
-            gameObject.Transform.Position = new Vector2(150+newx, 100);
+            gameObject.Transform.Position = new Vector2(200+newx, 150);
             gameObject.AddComponent(new Collider(gameObject));
 
 
@@ -94,7 +94,7 @@ namespace WrapThat
 
                 int newx = 50 * i;
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
-                gameObject.Transform.Position = new Vector2(600 + newx, 100);
+                gameObject.Transform.Position = new Vector2(600 + newx, 150);
                 gameObject.AddComponent(new Collider(gameObject));
 
 
