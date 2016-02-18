@@ -172,6 +172,8 @@ namespace WrapThat
                 gameObjects.Add(director.Construct(new Vector2(294, 144), "Niels"));
                 director = new Director(new DoorBuilder());
                 gameObjects.Add(director.Construct(new Vector2(294, 344), "Niels"));
+                director = new Director(new Gift());
+                gameObjects.Add(director.Construct(new Vector2(350, 200)));
                 director = new Director(new PlayerBuilder());
                 gameObjects.Add(director.Construct(Vector2.Zero));
                 director = new Director(new MoveableBoxBuilder());
