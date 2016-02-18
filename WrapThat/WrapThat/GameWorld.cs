@@ -120,7 +120,7 @@ namespace WrapThat
             if (level == "level 1")
             {
                 GameObject background = new GameObject();
-                background.AddComponent(new SpriteRenderer(background, "Background", 0));
+                background.AddComponent(new SpriteRenderer(background, "Background", 0f));
                 gameObjects.Add(background);
                 director = new Director(new DoorBuilder());
                 gameObjects.Add(director.Construct(new Vector2(150, 47), "Frederik"));

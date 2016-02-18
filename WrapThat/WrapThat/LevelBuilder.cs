@@ -28,7 +28,7 @@ namespace WrapThat
         {
            
             GameObject gameObject = new GameObject();
-            gameObject.AddComponent(new SpriteRenderer(gameObject, "tile", 1f));
+            gameObject.AddComponent(new SpriteRenderer(gameObject, "tile", 0.1f));
             gameObject.Transform.Position = new Vector2(i*122, i*122);
                 
             this.gameObject = gameObject;

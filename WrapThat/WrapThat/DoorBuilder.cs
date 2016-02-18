@@ -24,7 +24,7 @@ namespace WrapThat
         {
             this.name = name;
             GameObject gameObject = new GameObject();
-            gameObject.AddComponent(new SpriteRenderer(gameObject, "DoorOne", 1f));
+            gameObject.AddComponent(new SpriteRenderer(gameObject, "DoorOne", 0.1f));
             gameObject.Transform.Position = position;
             gameObject.AddComponent(new Door(gameObject, name));
             gameObject.AddComponent(new Collider(gameObject));
