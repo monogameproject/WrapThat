@@ -130,6 +130,7 @@ namespace WrapThat
                 gameObjects.Add(director.Construct(Vector2.Zero, "Frederik"));
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 55), "Niels"));
+               //her skal det være  den horizontale door
                 director = new Director(new BoxPreassurePlateBuilder());
                 gameObjects.Add(director.Construct(new Vector2(450, 350), "Claus"));
                 director = new Director(new DoorBuilder());
@@ -139,7 +140,7 @@ namespace WrapThat
                 director = new Director(new MoveableBoxBuilder());
                 gameObjects.Add(director.Construct(new Vector2(250, 55)));
                 director = new Director(new MoveableBoxBuilder());
-                gameObjects.Add(director.Construct(new Vector2(450, 200)));
+                gameObjects.Add(director.Construct(new Vector2(550, 300)));
                 director = new Director(new PlayerBuilder());
                 gameObjects.Add(director.Construct(Vector2.Zero));
 
