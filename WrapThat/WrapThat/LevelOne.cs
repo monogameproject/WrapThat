@@ -9,7 +9,7 @@ namespace WrapThat
 {
     class LevelOne
     {
-       private List<GameObject> _levelOneObjects= new List<GameObject>();
+        private List<GameObject> _levelOneObjects = new List<GameObject>();
 
         public List<GameObject> LevelOneObjects
         {
@@ -69,22 +69,22 @@ namespace WrapThat
                 _levelOneObjects.Add(gameObject);
             }
         }
-        public  void LevelOneBuild()
+        public void LevelOneBuild()
         {
             LevelBorderBuild();
             // bygger første  række henad
             for (int i = 0; i < 7; i++)
             {
-                
-            GameObject gameObject = new GameObject();
+
+                GameObject gameObject = new GameObject();
 
                 int newx = 50 * i;
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
-            gameObject.Transform.Position = new Vector2(200+newx, 150);
-            gameObject.AddComponent(new Collider(gameObject));
+                gameObject.Transform.Position = new Vector2(200 + newx, 150);
+                gameObject.AddComponent(new Collider(gameObject));
 
 
-            _levelOneObjects.Add(gameObject);
+                _levelOneObjects.Add(gameObject);
             }
             // bygger  alt efter hullet henad x
             for (int i = 0; i < 3; i++)
@@ -94,7 +94,7 @@ namespace WrapThat
 
                 int newx = 50 * i;
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
-                gameObject.Transform.Position = new Vector2(600 + newx, 150);
+                gameObject.Transform.Position = new Vector2(650 + newx, 150);
                 gameObject.AddComponent(new Collider(gameObject));
 
 
@@ -108,7 +108,7 @@ namespace WrapThat
 
                 int newy = 50 * i;
                 gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
-                gameObject.Transform.Position = new Vector2(150 , 148+newy);
+                gameObject.Transform.Position = new Vector2(150, 148 + newy);
                 gameObject.AddComponent(new Collider(gameObject));
 
 
@@ -131,12 +131,148 @@ namespace WrapThat
 
         }
 
-        public  void LevelTwoBuild()
+        public void LevelTwoBuild()
         {
-           LevelBorderBuild();
+            LevelBorderBuild();
+            int j = 6;
+            GameObject single = new GameObject();
+            single.AddComponent(new SpriteRenderer(single, "Tile", 2f));
+            single.Transform.Position = new Vector2(250 - j, 50 - j);
+            single.AddComponent(new Collider(single));
+            _levelOneObjects.Add(single);
+            for (int i = 0; i < 6; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(50 - j + newy, 100 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+                if (i == 1)
+                {
+                    i = 2;
+                }
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(350 - j + newy, 150 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+                if (i == 4)
+                {
+                    i = 3;
+                }
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(100 - j + newy, 200 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+                if (i == 0)
+                {
+                    i = 1;
+                }
+                if (i == 2)
+                {
+                    i = 3;
+                }
+                if (i == 4)
+                {
+                    i = 5;
+                }
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(100 - j + newy, 250 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+                if (i == 0)
+                {
+                    i = 1;
+                }
+                if (i == 2)
+                {
+                    i = 3;
+                }
+                if (i == 4)
+                {
+                    i = 5;
+                }
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(100 - j + newy, 300 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+                if (i == 0)
+                {
+                    i = 1;
+                }
+                if (i == 2)
+                {
+                    i = 3;
+                }
+                if (i == 4)
+                {
+                    i = 5;
+                }
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(100 - j + newy, 350 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+                if (i == 0)
+                {
+                    i = 1;
+                }
+                if (i == 2)
+                {
+                    i = 5;
+                }
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                GameObject gameObject = new GameObject();
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(250 - j + newy, 400 - j);
+                gameObject.AddComponent(new Collider(gameObject));
+
+                _levelOneObjects.Add(gameObject);
+            }
+
+
         }
 
-        public void LevelChecker( string level)
+        public void LevelChecker(string level)
         {
             if (level == "level 1")
             {
@@ -160,11 +296,11 @@ namespace WrapThat
 
                 }
                 GameWorld.Instance.Completed = false;
-               
+
             }
         }
 
-        public void RemoveOldLevel( string level,bool Completed)
+        public void RemoveOldLevel(string level, bool Completed)
         {
             if (level == "level 2" && Completed == true)
             {
@@ -181,7 +317,7 @@ namespace WrapThat
 
                 }
 
-               // Initialize();
+                // Initialize();
             }
         }
     }

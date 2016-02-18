@@ -13,7 +13,7 @@ namespace WrapThat
         {
             GameObject gameObject = new GameObject();
             gameObject.AddComponent(new SpriteRenderer(gameObject, "PlayerSheet", 1f));
-            gameObject.Transform.Position = new Vector2(55, 55);
+            gameObject.Transform.Position = new Vector2(50, 50);
             gameObject.AddComponent(new Animator(gameObject));
             gameObject.AddComponent(new Player(gameObject));
             gameObject.AddComponent(new Collider(gameObject));
