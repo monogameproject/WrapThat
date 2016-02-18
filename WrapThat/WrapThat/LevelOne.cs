@@ -115,6 +115,20 @@ namespace WrapThat
                 _levelOneObjects.Add(gameObject);
             }
 
+            for (int i = 0; i < 4; i++)
+            {
+
+                GameObject gameObject = new GameObject();
+
+                int newy = 50 * i;
+                gameObject.AddComponent(new SpriteRenderer(gameObject, "Tile", 2f));
+                gameObject.Transform.Position = new Vector2(400, 198 + newy);
+                gameObject.AddComponent(new Collider(gameObject));
+
+
+                _levelOneObjects.Add(gameObject);
+            }
+
         }
 
         public  void LevelTwoBuild()
