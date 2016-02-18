@@ -22,7 +22,7 @@ namespace WrapThat
         private string level = "level 1";
         private bool completed = false;
         private Direction direction;
-        private LevelOne one = new LevelOne();
+        private Level one = new Level();
         private static GameWorld instance;
         private static float deltaTime;
         private static List<GameObject> gameObjects = new List<GameObject>();
@@ -192,28 +192,7 @@ namespace WrapThat
             }
 
             if (level == "level 3" && Completed == true)
-            {
-                GameObject background = new GameObject();
-                background.AddComponent(new SpriteRenderer(background, "Background", 0f));
-                gameObjects.Add(background);
-                director = new Director(new DoorBuilder());
-                gameObjects.Add(director.Construct(new Vector2(194, 144), "Frederik"));
-                director = new Director(new PreassurePlateBuilder());
-                gameObjects.Add(director.Construct(new Vector2(194, 394), "Frederik"));
-                director = new Director(new BoxPreassurePlateBuilder());
-                gameObjects.Add(director.Construct(new Vector2(144, 344), "Claus"));
-                director = new Director(new DoorBuilder());
-                gameObjects.Add(director.Construct(new Vector2(44, 244), "Claus", "DoorTwo"));
-                director = new Director(new BoxPreassurePlateBuilder());
-                gameObjects.Add(director.Construct(new Vector2(294, 144), "Niels"));
-                director = new Director(new DoorBuilder());
-                gameObjects.Add(director.Construct(new Vector2(294, 344), "Niels"));
-                director = new Director(new Gift());
-                gameObjects.Add(director.Construct(new Vector2(350, 200)));
-                director = new Director(new PlayerBuilder());
-                gameObjects.Add(director.Construct(Vector2.Zero));
-                director = new Director(new MoveableBoxBuilder());
-                gameObjects.Add(director.Construct(new Vector2(150, 150)));
+            { 
 
 
                 one.LevelThreeBuild();
@@ -290,6 +269,23 @@ namespace WrapThat
                 go.Update();
             }
             if (level == "level 2" && Completed == true)
+            {
+                int J = GameObjects.Count;
+                for (int i = 0; i < J; i++)
+                {
+                    GameObject go = GameObjects[0];
+
+                    if (go.GetComponent("Collider") != null)
+                    {
+                        Colliders.Remove((Collider)go.GetComponent("Collider"));
+                    }
+                    GameObjects.Remove(GameObjects[0]);
+                    one.LevelOneObjects.Clear();
+                }
+
+                Initialize();
+            }
+            if (level == "level 3" && Completed == true)
             {
                 int J = GameObjects.Count;
                 for (int i = 0; i < J; i++)

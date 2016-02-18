@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WrapThat
 {
-    class LevelOne
+    class Level
     {
         private List<GameObject> _levelOneObjects = new List<GameObject>();
 

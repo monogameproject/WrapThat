@@ -60,7 +60,7 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="IUpdateable.cs" />
     <Compile Include="LevelBuilder.cs" />
-    <Compile Include="LevelOne.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="MoveableBox.cs" />
     <Compile Include="MoveableBoxBuilder.cs" />
     <Compile Include="MoveBox.cs" />
